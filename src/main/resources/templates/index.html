@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<body>
+    <!-- nav bar -->
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                    <path fill-rule="evenodd"
+                        d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                </svg>
+            </a>
+
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/carbrand" class="nav-link px-2 link-secondary">Car Brand</a></li>
+                <li><a href="/board" class="nav-link px-2 link-dark">sample auto Magazine</a></li>
+                <li><a href="/service" class="nav-link px-2 link-dark">sample auto Service</a></li>
+                <li><a href="/about" class="nav-link px-2 link-dark">About us</a></li>
+            </ul>
+        </header>
+    </div>
+
+
+
+    <div class="container">
+        <!-- form -->
+        <div class="row g-5">
+            <div class="col-md-7 col-lg-8">
+                <h4 class="mb-3">빠른 견적문의</h4>
+                <form class="needs-validation" novalidate="">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="name" placeholder="이름" value="" required="">
+                            <div class="invalid-feedback">
+                                Valid name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="phoneNumber" placeholder="연락처(-제외)" value=""
+                                required="">
+                            <div class="invalid-feedback">
+                                Valid Phone Number is required.
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <select class="form-select" id="category" required="">
+                                <option value="">유형</option>
+                                <option>개인</option>
+                                <option>개인사업자</option>
+                                <option>법인사업자</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <select class="form-select" id="purchase" required="">
+                                <option value="">구매방식</option>
+                                <option>리스</option>
+                                <option>장기렌트</option>
+                                <option>기타</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <select class="form-select" id="time" required="">
+                                <option value="">구매시기</option>
+                                <option>조건에맞을시 즉시구입</option>
+                                <option>1주일 이내 구입</option>
+                                <option>1개월 이내 구입</option>
+                                <option>3개월 이내 구입</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <select class="form-select" id="time" required="">
+                                <option value="">제조사 선택</option>
+                                <option>현대</option>
+                                <option>기아</option>
+                                <option>쉐보레</option>
+                                <option>쌍용</option>
+                                <option>르노삼성</option>
+                                <option>벤츠</option>
+                                <option>BMW</option>
+                                <option>아우디</option>
+                                <option>폭스바겐</option>
+                                <option>미니</option>
+                                <option>볼보</option>
+                                <option>재규어</option>
+                                <option>랜드로버</option>
+                                <option>포르쉐</option>
+                                <option>페라리</option>
+                                <option>람보르기니</option>
+                                <option>마세라티</option>
+                                <option>푸조</option>
+                                <option>시트로엥</option>
+                                <option>DS</option>
+                                <option>벤틀리</option>
+                                <option>롤스로이스</option>
+                                <option>토요타</option>
+                                <option>렉서스</option>
+                                <option>닛산</option>
+                                <option>인피니티</option>
+                                <option>혼다</option>
+                                <option>포드</option>
+                                <option>링컨</option>
+                                <option>지프</option>
+                                <option>캐딜락</option>
+                                <option>테슬라</option>
+                                <option>멕라렌</option>
+                                <option>로터스</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <select class="form-select" id="time" required="">
+                                <option value="">모델명 선택</option>
+                                <option>현대</option>
+                                <option>기아</option>
+                                
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="inquiry" placeholder="문의내용" value=""
+                                required="">
+                        </div>
+
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="consent" name="paymentMethod" type="radio" class="form-check-input"
+                                    checked="" required="">
+                                <label class="form-check-label" for="consent">동의</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="unconsent" name="paymentMethod" type="radio" class="form-check-input"
+                                    required="">
+                                <label class="form-check-label" for="unconsent">비동의</label>
+                            </div>
+                        </div>
+                        <button class="w-100 btn btn-primary btn-lg" type="submit">견적문의 하기</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- sale info -->
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">123</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>실시간 견적의뢰 건수/전체</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">21,149</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>견적의뢰 건수/전체</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">5,864</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>견적건수</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- promotion -->
+
+</body>
+
+</html>
