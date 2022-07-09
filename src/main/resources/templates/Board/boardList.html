@@ -13,8 +13,7 @@
 <body>
     <!-- nav bar -->
     <div class="container">
-        <header
-            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house"
                     viewBox="0 0 16 16">
@@ -70,7 +69,7 @@
                     <td th:text="${row.id}">번호</td>
                     <td th:text="${row.userid}">아이디</td>
                     <td th:text="${row.Title}"> 제목</td>
-                    <td th:text="${#temporals.format(row.creationTimestamp,'yyyy-MM-dd')}">작성일</td>
+                    <td th:text="${#temporals.format(row.create_date_time,'yyyy-MM-dd')}">작성일</td>
             </tbody>
             </tr>
         </table>
@@ -84,7 +83,7 @@
             <li class="page-item " th:classappend="${startPage < list.pageable.pageSize} ? 'disabled'">
                 <a class="page-link"
                     th:href="@{/board/board-list(page=${startPage - list.pageable.pageSize-1}, searchString=${param.searchString})}"
-                    tabindex="-1" aria-disabled="true">Previous</a>
+                    tabindex="-1" aria-disabled="true">이전 페이지</a>
             </li>
 
             <!-- 페이지 10개 -->
@@ -99,7 +98,7 @@
             <li class="page-item "
                 th:classappend="${startPage + list.pageable.pageSize >  list.totalPages } ? 'disabled'">
                 <a class="page-link"
-                    th:href="@{/board/board-list(page=${startPage + list.pageable.pageSize -1 }, searchString=${param.searchString})}">Next</a>
+                    th:href="@{/board/board-list(page=${startPage + list.pageable.pageSize -1 }, searchString=${param.searchString})}">다음 페이지</a>
             </li>
 
 

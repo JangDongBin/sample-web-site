@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/board")
 public class BoardController {
     private final BoardRepository boardRepository;
+    private final BoardService boardService;
 
     @GetMapping("")
     public String boardList(Model model, @PageableDefault(size = 20) Pageable pageable, @RequestParam(required = false, defaultValue = "") String searchString){
@@ -32,6 +33,12 @@ public class BoardController {
         model.addAttribute("title", "리스트");
 
         return "Board/boardList";
+    }
+
+    @GetMapping("/detail-board")
+    public String DetailBoard(Model model, @RequestParam Long id) {
+        boardService.detailProcess(model, id);
+        return "Board/boardDetail";
     }
     
     

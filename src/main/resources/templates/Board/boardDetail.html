@@ -35,6 +35,36 @@
     </div>
     
     <!-- board detali info -->
-    <p> detail</p>
+    <div class="container">
+        <form th:action="@{/admin/board-add}" th:object="${boardForm}" class="needs-validation" method="post">
+            <hr class="my-4">
+            <h4 class="mb-5">상세보기</h4>
+            <input class="form-control" type="hidden" th:field="*{id}">
+
+            <div class="row mb-3">
+                <label for="TitleField" class="form-label">글 제목</label>
+                <input class="form-control" type="text" name="" id="" th:field="*{TitleField}" disabled>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('TitleField')}"
+                    th:errors="*{TitleField}">Title error</small>
+
+                <label for="useridField" class="form-label">작성자</label>
+                <input class="form-control" type="text" name="" id="" th:field="*{useridField}" disabled>
+            </div>
+
+            <div class="row mb-3">
+                <label for="ContentField" class="form-label">내용</label>
+                <textarea th:field="*{ContentField}" class="form-control" rows="10" disabled></textarea>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('ContentField')}"
+                    th:errors="*{ContentField}">Text error</small>
+            </div>
+
+
+            <div class="col-12">
+                <button class="btn btn-success btn-lg btn-block" type="button" onclick="form_update();">수정</button>
+                <button class="btn btn-danger btn-lg btn-block" type="button" onclick="form_del();">삭제</button>
+                <button class="btn btn-primary btn-lg btn-block" type="button" onclick="form_list();">목록</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

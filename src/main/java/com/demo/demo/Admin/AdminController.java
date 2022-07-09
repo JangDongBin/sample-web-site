@@ -53,15 +53,15 @@ public class AdminController {
         return "Admin/admin_board";
     }
 
-    // @PostMapping("/board-add")
-    // public String Post_AddBoard(@Valid BoardForm boardForm, Errors errors, Model model) {
-    //     if (errors.hasErrors()) {
-    //         return "board/boardAdd";
-    //     }
-
-    //     Board newbBoard = boardService.updateProcess(boardForm);
-    //     return "redirect:/test/detail-board?id=" + newbBoard.getId();
-    // }
+    @PostMapping("/board-add")
+    public String Post_AddBoard(@Valid BoardForm boardForm, Errors errors, Model model) {
+        if (errors.hasErrors()) {
+            return "Admin/admin_board";
+        }
+        System.out.println(boardForm);
+        Board newbBoard = boardService.updateProcess(boardForm);
+        return "redirect:/board/detail-board?id=" + newbBoard.getId();
+    }
 
     @GetMapping("/banner")
     public String admin_banner(){

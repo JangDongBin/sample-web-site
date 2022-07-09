@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BoardService {
     private final BoardRepository boardRepository;
-
+    //글쓰기, 조회, 수정.
     public void detailProcess(Model model, Long id) {
         if (id != null) {
             Optional<Board> board = boardRepository.findById(id);
@@ -30,4 +30,28 @@ public class BoardService {
             model.addAttribute("boardForm", new BoardForm());
         }
     }
+
+    public Board updateProcess(BoardForm boardForm) {
+        Board newBoard;
+
+        if (boardForm.getId() == null) {
+            newBoard = Board.builder()
+                    .id(null)
+                    .userid(boardForm.getUseridField())
+                    .title(boardForm.getTitleField())
+                    .content(boardForm.getContentField())
+                    .build();
+        } else {
+            newBoard = Board.builder()
+                    .id(boardForm.getId())
+                    .userid(boardForm.getUseridField())
+                    .title(boardForm.getTitleField())
+                    .content(boardForm.getContentField())
+                    .build();
+        }
+
+        boardRepository.save(newBoard);
+        return newBoard;
+    }
+
 }
