@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
+    <title>A1 auto</title>
+    <!-- 스타일 -->
+    <link rel="stylesheet" type="text/css" href="css/html5_reset.css">
+    <link rel="stylesheet" type="text/css" href="css/board.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/utill.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="js/jquery.tabify.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+    <div class="sub_cont w100">
+        <h3 class="tit_sub">신형 G90 <p><img src="images/list_logo_brand_1.jpg" alt="" class="mark" /> 현대
+                <!--i>|</i> hyundai-->
+            </p>
+        </h3>
+        <div class="view_car_brand">
+            <div class="inner">
+                <div class="ment">
+                    <h4>신형 G90</h4>
+                    <ul>
+                        <li><strong>차종</strong>대형</li>
+                        <li><strong>연비</strong>복합연비 8.5~9.3 ㎞/ℓ</li>
+                        <li><strong>가격</strong>89,570,000~174,570,000원</li>
+                        <li><strong>유종</strong>휘발유</li>
+                        <li><strong>렌트</strong>1,345,850원~ 무보증기준</li>
+                        <li><strong>렌트</strong>824,630원~ 선납30%기준</li>
+                        <li><strong>리스</strong>1,239,500원~ 무보증기준</li>
+                        <li><strong>리스</strong>733,600원~ 선납30%기준</li>
+
+
+                    </ul>
+                    <a href="sub6.html" class="btn_style">견적문의하기</a>
+                </div>
+                <div class="wrap_img">
+                    <div class="img"><img src="/_upload/car_img/4664427433.png" alt="" /></div>
+                    <ul>
+                        <li>
+                            <a class="image-popup-vertical-fit" href="/_upload/car_img/3484406168.png" title="">
+                                <img src="/_upload/car_img/3484406168.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="image-popup-vertical-fit" href="/_upload/car_img/841339491.png" title="">
+                                <img src="/_upload/car_img/841339491.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="image-popup-vertical-fit" href="/_upload/car_img/53444476.png" title="">
+                                <img src="/_upload/car_img/53444476.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="image-popup-vertical-fit" href="/_upload/car_img/2255461923.png" title="">
+                                <img src="/_upload/car_img/2255461923.png">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //wrap_img -->
+
+
+
+            </div>
+
+        </div>
+    </div>
+    <!-- //sub_cont -->
+
+
+    <style type="text/css">
+        .event_pc {
+            display: inline-block;
+        }
+
+        .event_mobile {
+            display: none;
+        }
+
+        @media only screen and (max-width : 600px) {
+            .event_pc {
+                display: none;
+            }
+
+            .event_mobile {
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+    <div style="text-align:center; padding:50px 0px; background-image: url( '/images/bg_sub_event.png' ); background-repeat: no-repeat; background-position: center center; background-size: cover;"
+        class="test">
+
+        <p>&nbsp;</p>
+        <center>
+            <img src="/smarteditor/upload/20220204100442162475113.jpg" title="홈페이지 상세페이지(최종).jpg"
+                style="max-width:100%; height:auto;">
+        </center>
+        <p>&nbsp;</p>
+
+
+
+    </div>
+
+
+
+    </div>
+    <!-- //container -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.image-popup-vertical-fit').magnificPopup({
+                type: 'image',
+                closeOnContentClick: true,
+                mainClass: 'mfp-img-mobile',
+                image: {
+                    verticalFit: true
+                }
+
+            });
+            var windowWidth = $(window).width();
+            if (windowWidth < 600) {
+                $(".test > p > img").addClass("event_mobile");
+                $(".test > p > img").removeClass("event_pc");
+            } else {
+                $(".test > p > img").addClass("event_pc");
+                $(".test > p > img").removeClass("event_mobile");
+            }
+            // var firsrtWid = $(window).width();
+            // $(".test > p > img").removeClass("event_pc");
+            // $(".test > p > img").addClass("event_mobile");
+            // var windowWidth = $(window).width();
+
+            $(window).resize(function () {
+                var windowWidth = $(window).width();
+                if (windowWidth < 600) {
+                    $(".test > p > img").addClass("event_mobile");
+                    $(".test > p > img").removeClass("event_pc");
+                } else {
+                    $(".test > p > img").addClass("event_pc");
+                    $(".test > p > img").removeClass("event_mobile");
+                }
+
+            });
+        });
+
+    </script>
+
+    <div class="menu_tail">
+        <div class="inner">
+            <ul>
+
+                <li><a href="#" class="popup-trigger1">이용약관</a></li>
+                <li><a href="#" class="popup-trigger2">개인정보취급방침</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="wrap_footer">
+        <div class="footer">
+            <h1><img src="images/logo.png" alt="" /></h1>
+            <div class="sns_b">
+                <ul>
+                    <li><a href="https://www.facebook.com/checkpoint/1501092823525282/?next=https%3A%2F%2Fwww.facebook.com%2F"
+                            target="_blank"><img src="/images/f.png" alt="페이스북" /></a></li>
+                    <li><a href="https://www.instagram.com/_a1_auto" target="_blank"><img src="/images/i.png"
+                                alt="인스타" /></a></li>
+                    <li><a href="http://pf.kakao.com/_xdEMgxb" target="_blank"><img src="/images/k.png" alt="카카오" /></a>
+                    </li>
+                    <li><a href="https://blog.naver.com/tjqorfh12" target="_blank"><img src="/images/b.png"
+                                alt="블로그" /></a></li>
+                </ul>
+            </div>
+
+            <p class="address">
+                상호명 : (주)에이원오토 / 경기 의정부시 민락로392 로얄프라자3층 / 대표: 서백로<br>
+                사업자등록번호: 752-81-01579 / 통신판매신고번호 : 제2021-의정부송산-0457호 <br>
+                TEL: 1899-5875 / FAX: 0504-343-6797 / Email: a1auto1@naver.com <br>
+            </p>
+            <div class="custom_b">
+                <p class="txt1">고객센터</p>
+                <p class="txt2">1899-5875</p>
+                <ul>
+                    <li><a href=""><img src="images/icon_sns_tail_1.png" alt="페이스북"></a></li>
+                    <li><a href=""><img src="images/icon_sns_tail_2.png" alt="트위터"></a></li>
+                </ul>
+            </div>
+            <p class="copy">Copyright A1AUTO Corp. All rights reserved. </p>
+        </div>
+    </div>
+    <!-- //wrap_footer -->
+
+    <div class="btn_inqury_quick_m">
+        <ul>
+            <li>
+                <a href="tel:1899-5875" class=""><img src="images/m_qmenu2.png" alt="빠른견적문의" /></a>
+            </li>
+            <li>
+                <a href="sub6.html" class=""><img src="images/m_qmenu.png" alt="빠른견적문의" /></a>
+            </li>
+        </ul>
+    </div>
+    </div>
+</body>
+
+</html>
