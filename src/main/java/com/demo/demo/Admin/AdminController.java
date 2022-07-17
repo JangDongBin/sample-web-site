@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.demo.demo.Board.Board;
 import com.demo.demo.Board.BoardForm;
 import com.demo.demo.Board.BoardFormValidator;
-import com.demo.demo.Board.BoardRepository;
+//import com.demo.demo.Board.BoardRepository;
 import com.demo.demo.Board.BoardService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RequestMapping("/admin")
 public class AdminController {
-    private final BoardRepository boardRepository;
+    //private final BoardRepository boardRepository;
     private final BoardService boardService;
     private final BoardFormValidator boardFormValidator;
 

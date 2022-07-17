@@ -20,7 +20,7 @@ public class BoardService {
                 BoardForm boardForm = BoardForm.builder()
                         .id(board.get().getId())
                         .useridField(board.get().getUserid())
-                        .TitleField(board.get().getTitle())
+                        .CategoryField(board.get().getCategory())
                         .ContentField(board.get().getContent())
                         .build();
                         
@@ -38,14 +38,14 @@ public class BoardService {
             newBoard = Board.builder()
                     .id(null)
                     .userid(boardForm.getUseridField())
-                    .title(boardForm.getTitleField())
+                    .category(boardForm.getCategoryField())
                     .content(boardForm.getContentField())
                     .build();
         } else {
             newBoard = Board.builder()
                     .id(boardForm.getId())
                     .userid(boardForm.getUseridField())
-                    .title(boardForm.getTitleField())
+                    .category(boardForm.getCategoryField())
                     .content(boardForm.getContentField())
                     .build();
         }
