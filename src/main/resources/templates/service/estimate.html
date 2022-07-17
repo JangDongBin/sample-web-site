@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 스타일 -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/html5_reset.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/board.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/utill.css">
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery-latest.min.js"></script>
+    <script src="/assets/js/jquery.bxslider.js"></script>
+    <script src="/assets/js/jquery.tabify.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <!-- script -->
+
+    <script>
+        function form_chk(){
+            if(!jquery_spacexf($("input:input[name='tel']"))){
+                alert("휴대폰번호를  입력하세요");
+                $("input:input[name='tel']").val("");
+                $("input:input[name='tel']").focus();
+                return;
+            }
+             
+        
+            //var trans_num = $("#tel").val();
+            var trans_num	=	$("#tel").val().replace(/-/g,"");	
+            // 입력값이 있을때만 실행합니다.
+            if(trans_num != null && trans_num != '')
+            {
+                // 총 핸드폰 자리수는 11글자이거나, 10자여야 합니다.
+                if(trans_num.length==11 || trans_num.length==10)
+                {
+                    // 유효성 체크
+                    var regExp_ctn = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})([0-9]{3,4})([0-9]{4})$/;
+                    if(regExp_ctn.test(trans_num))
+                    {
+                        // 유효성 체크에 성공하면 하이픈을 넣고 값을 바꿔줍니다.
+                        //trans_num = trans_num.replace(/^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?([0-9]{3,4})-?([0-9]{4})$/, "$1-$2-$3");
+                        $("#tel").val(trans_num);
+                    }
+                    else
+                    {
+                        alert("유효하지 않은 휴대폰번호 입니다.");
+                        $("#tel").val("");
+                        $("#tel").focus();
+                        return;
+                    }
+                }
+                else
+                {
+                    alert("유효하지 않은 휴대폰번호 입니다.");
+                    $("#tel").val("");
+                    $("#tel").focus();
+                    return;
+                }
+            }
+            if(!jquery_spacexf($("input:input[name='write_name']"))){
+                alert("이름을 입력하세요");
+                $("input:input[name='write_name']").val("");
+                $("input:input[name='write_name']").focus();
+                return;
+            }
+            else if(!jquery_spacexf($("input:input[name='car_kind']"))){
+                alert("선호차종을 입력하세요");
+                $("input:input[name='car_kind']").val("");
+                $("input:input[name='car_kind']").focus();
+                return;
+            }
+            else if($("select[name='buy_time']").val()==""){
+                alert("구매시기를 선택하세요");
+                $("input:input[name='buy_time']").val("");
+                $("input:input[name='buy_time']").focus();
+                return;
+            } 
+            else if($("select[name='oil_kind']").val()==""){
+                alert("유종을 선택하세요");
+                $("input:input[name='oil_kind']").val("");
+                $("input:input[name='oil_kind']").focus();
+                return;
+            } 
+            else if($("select[name='brand_code']").val()==""){
+                alert("제조사를 선택하세요");
+                $("input:input[name='brand_code']").val("");
+                $("input:input[name='brand_code']").focus();
+                return;
+            } 
+            else if($("input:checkbox[id='agree']").is(":checked")!=true){
+                alert("개인정보 수집에 동의 하셔야합니다..");
+                $("input:checkbox[id='personal_chk']").focus(); 
+                return;
+            }
+        //	if(confirm("예약신청하시겠습니까?") == false){
+        //		return;
+        //	}
+            $("#flag").val("save");
+            var params = $("#form").serialize();
+            $('#form').ajaxForm({
+                url: './bin/consult_save.php',
+                success: function (result) {
+                    if(result.indexOf("OK") != -1) {
+        
+                        //alert("접수되었습니다.");
+                        location.href="sub7.html";
+                        //$("input:radio[name='owner_gubun']:radio[value='1']").prop('checked', true); 
+                        //$("input:radio[name='oil_kind']:radio[value='']").prop('checked', true); 
+                        $("#form")[0].reset();
+                    }
+                },
+                error:function(request,status,error){
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+               }
+            });
+            $("#form").submit();
+        
+             
+        }
+        
+        function model_load(){
+                $.get(
+                "./bin/consult_save.php",
+                {
+                    flag:"model_load",
+                    brand_code:$("#brand_code").val()
+                },
+                function(data){
+                    var inOption = "<option value='' selected>모델명 선택</option>"; 
+                    if( data != null){
+                        $.each( data, function( index, item ) {
+                            inOption += "<option value='"+index+"'>"+item+"</option>";
+                        });
+                    }
+                    $("#model_code").html(inOption);
+                },
+                "json"
+            );
+        }
+        
+         
+        </script>
+</head>
+
+<body class="has-js" style="">
+    <th:block th:replace="fragments/header :: headerFragment"></th:block>
+
+    <div class="sub_top sub_top1">
+        <div class="ment">
+            <h2>Car Brand</h2>
+            <p>A1 auto</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <a href="tel:1899-5875" class="btn_inqury_quick1"><img src="/assets/images/Q_menu.png" alt="빠른견적문의" /></a>
+        <a href="sub6.html" class="btn_inqury_quick"><img src="/assets/images/btn_inqury_m.png" alt="빠른견적문의" /></a>
+            <div class="sub_cont w100" style="padding: 0;">
+                <div class="write_service">
+                    <div class="banner">
+                        <div class="ment">
+                            <p class="txt1">A1 auto</p>
+                            <p class="txt2">편하고 빠르게</p>
+                            <p class="txt3"> 합리적인 간편신청</p>
+                        </div>
+                    </div> 
+                    <div class="inner">
+                        <form name="form"  id="form" method="post">
+                        <input type="hidden" name="flag" id="flag" value="save">
+                        <input type="hidden" name="link_url" id="link_url" value="http://a1auto.co.kr/">
+                        <!-- <input type="hidden" name="link_url" id="link_url" value="a1auto.co.kr/sub6.html"> -->
+                            <p class="txt_top">아래 정보를 입력해주시면 <br class="mobile">전문상담사가 연락을 드리겠습니다</p>
+                            <div class="table_style1">
+                                <table summary="">
+                                    <caption></caption>
+                                    <tbody class="center">
+                                                                                                                       
+                                        <tr>
+                                            <th>소유자<strong>*</strong></th>
+                                            <td>       
+                                                 <div class="radios">
+                                                    <label class="label_radio" for="radio-01"><input name="owner_gubun" id="radio-01" value="1" type="radio" checked />개인</label>
+                                                    <label class="label_radio" for="radio-02"><input name="owner_gubun" id="radio-02" value="2" type="radio" /> 개인사업자</label>
+                                                    <label class="label_radio" for="radio-02-2"><input name="owner_gubun" id="radio-02-2" value="3" type="radio" /> 법인사업자</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>휴대폰번호 <strong>*</strong></th>
+                                            <td>
+                                                <input type="text" name="tel1" id="tel1" class="input_style1 tel" placeholder="전화번호를 입력해주세요" maxlength="3"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                <span>-</span>
+                                                <input type="text" name="tel2" id="tel2" class="input_style1 tel" placeholder="" maxlength="4"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                <span>-</span>
+                                                <input type="text" name="tel3" id="tel3" class="input_style1 tel" placeholder="" maxlength="4"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>이름 <strong>*</strong></th>
+                                            <td>
+                                                <input type="text" name="write_name" class="input_style1" placeholder="이름을 입력하세요">
+                                            </td>
+                                        </tr>
+                                        <!--tr>
+                                            <th>선호차종 <strong>*</strong></th>
+                                            <td>
+                                                <input type="text" name="car_kind" class="input_style1" placeholder="선호차종을 입력하세요.">
+                                            </td>
+                                        </tr-->
+                                        <tr>
+                                            <th>구매방식<strong>*</strong></th>
+                                            <td>
+                                                 <div class="radios">
+                                                    <label class="label_radio" for="radio-03"><input name="buy_method" id="radio-03" value="리스" type="radio" checked />리스</label>
+                                                    <label class="label_radio" for="radio-04"><input name="buy_method" id="radio-04" value="장기렌트" type="radio" /> 장기렌트</label>
+                                                    <label class="label_radio" for="radio-05"><input name="buy_method" id="radio-05" value="기타" type="radio" /> 기타</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>구매시기<strong>*</strong></th>
+                                            <td>
+                                                <select class="input_style2" name="buy_time" id="buy_time" required="">
+                                                    <option value="" selected>선택</option> 
+                                                    <option value="조건맞을시 즉시구입">조건맞을시 즉시구입</option>
+                                                    <option value="1주일이내 구입">1주일이내 구입</option>
+                                                    <option value="1개월 이내 구입">1개월 이내 구입</option>
+                                                    <option value="3개월 이내 구입">3개월 이내 구입</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <!-- <tr>
+                                            <th>유종<strong>*</strong></th>
+                                            <td>
+                                                <select class="input_style2" name="oil_kind" id="oil_kind" required="">
+                                                    <option value="" selected>선택</option> 
+                                                    <option value="경유">경유</option>
+                                                    <option value="휘발유">휘발유</option>
+                                                    <option value="LPG">LPG</option>
+                                                    <option value="하이브리드">하이브리드</option>
+                                                    <option value="전기차">전기차</option>
+                                                </select>
+                                            </td>
+                                        </tr> -->
+                                        <tr>
+                                            <th>제조사/모델명<strong>*</strong></th>
+                                            <td>
+                                                <select class="input_style2" name="brand_code" id="brand_code" required="" onchange="model_load()">
+                                                    <option value="" selected>제조사 선택</option>
+                                                    <option value="1">현대</option><option value="2">기아</option><option value="4">쉐보레</option><option value="5">쌍용</option><option value="3">르노삼성</option><option value="34">벤츠</option><option value="15">BMW</option><option value="38">아우디</option><option value="26">폭스바겐</option><option value="13">미니</option><option value="41">볼보</option><option value="27">재규어</option><option value="43">랜드로버</option><option value="25">포르쉐</option><option value="31">페라리</option><option value="17">람보르기니</option><option value="37">마세라티</option><option value="36">푸조</option><option value="19">시트로엥</option><option value="29">DS</option><option value="20">벤틀리</option><option value="11">롤스로이스</option><option value="40">토요타</option><option value="23">렉서스</option><option value="24">닛산</option><option value="22">인피니티</option><option value="33">혼다</option><option value="35">포드</option><option value="42">링컨</option><option value="14">지프</option><option value="28">캐딜락</option><option value="18">테슬라</option><option value="16">이베코</option><option value="6">카인드</option><option value="7">캠시스</option><option value="8">대창모터스</option><option value="9">자일대우</option><option value="10">SMART EV</option><option value="39">동풍</option><option value="12">맥라렌</option><option value="21">애스턴마틴</option><option value="30">북기은상</option><option value="32">로터스</option><option value="44">이스즈</option>											</select>
+                                                <select class="input_style2" name="model_code" id="model_code" required="">
+                                                    <option value="" selected>모델명 선택</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>문의내용<strong></strong></th>
+                                            <td>
+                                                <!-- <input type="text" name="content" class="input_style3" placeholder="" maxlength="1000"> -->
+                                                <textarea style="resize:vertical; height:200px;" class="input_style3" maxlength="1000" name="content" id=""></textarea>
+                                                
+                                                <p style="font-size: 14px;font-weight: 300;color: #999999;padding: 10px 0;">(최대 1000자 이하) </p>
+                                            </td>
+                                        </tr>
+    
+                                        
+                                    </tbody>
+                                </table>
+                                <div class="agree">
+                                    <input type="checkbox" class="checkbox" id="agree">개인정보 수집 및 이용동의 <strong>(필수)</strong> <a href="#" class="popup-trigger2">자세히보기</a> <br class="mobile"><span>*해당 서비스 제공을 위해서 필요한 최소한의 개인정보이므로 동의를 해 주셔야 서비스를 이용하실 수 있습니다.</span>
+                                    
+                                </div>
+                                <div class="btn_area">
+                                    <a href="javascript:form_chk()">예약 신청하기</a>
+                                </div>
+                                <p class="txt_bottom">지금 신청하시면 상담원이 연락드리겠습니다.</p>
+                            </div>
+                        </form>
+                    
+                        
+                    </div>
+            
+                </div>
+                <!-- //write_service -->
+            </div>
+        <!-- //sub_cont -->
+    </div>
+    <!-- //container -->
+    <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+</body>
+
+</html>
