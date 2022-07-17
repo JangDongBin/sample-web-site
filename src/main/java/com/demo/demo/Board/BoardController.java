@@ -20,7 +20,7 @@ public class BoardController {
 
     @GetMapping("")
     public String boardList(Model model, @PageableDefault(size = 20) Pageable pageable, @RequestParam(required = false, defaultValue = "") String searchString){
-        Page<Board> boardPagingList = boardRepository.findByUseridContainingOrTitleContainingOrderByIdDesc(searchString, searchString, pageable);
+        Page<Board> boardPagingList = boardRepository.findByCategoryOrderByIdDesc(searchString, pageable);
 
         int startPage = Math.max(1, (boardPagingList.getPageable().getPageNumber() / pageable.getPageSize()) * pageable.getPageSize() + 1);
         int endPage = Math.min(boardPagingList.getTotalPages(), startPage + pageable.getPageSize() - 1);

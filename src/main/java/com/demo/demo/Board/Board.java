@@ -28,10 +28,14 @@ public class Board {
     private String userid; //작성자
 
     @Column(length = 40)
-    private String title; //제목
+    private String category; //카테고리
 
     @Column(length = 600)
     private String content; //내용
+
+    private String imgName; //상품 이미지
+
+    private String imgPath; //이미지 경로
 
     @CreationTimestamp
     private LocalDateTime create_date_time; //생성 시간
