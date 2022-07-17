@@ -2,13 +2,16 @@ package com.demo.demo.About;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/about")
 public class AboutController {
-    @GetMapping("")
+    @GetMapping("/company")
     public String company(){
         return "About/company";
+    }
+
+    @GetMapping("/partner")
+    public String partner(){
+        return "About/partner";
     }
 }

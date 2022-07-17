@@ -14,7 +14,7 @@ xmlns:th="http://www.thymeleaf.org">
 	<link rel="stylesheet" type="text/css" href="./assets/css/swiper-bundle.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/swiper-bundle.min.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/swiper.css">
-	<link rel="stylesheet" type="text/css" href="./assets/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
 
 	<script src="./assets/js/swiper-bundle.js"></script>
@@ -427,13 +427,13 @@ xmlns:th="http://www.thymeleaf.org">
 						</div>
 					</li>
 					<li>
-						<div class="num">22,198</div>
+						<div class="num">22198</div>
 						<div class="ment">
 							견적의뢰 건수/전체
 						</div>
 					</li>
 					<li>
-						<div class="num">7,742</div>
+						<div class="num">7742</div>
 						<div class="ment">
 							계약건수
 						</div>
@@ -446,9 +446,9 @@ xmlns:th="http://www.thymeleaf.org">
 
 		<script type="text/javascript">
 			$('.section_main.section1 .num').each(function () {
-				$(this).prop('Counter', 0).animate({
-					Counter: $(this).text()
-				}, {
+			$(this).prop('Counter',0).animate({
+				Counter: $(this).text()
+			}, {
 					duration: 5000,
 					easing: 'swing',
 					step: function (now) {
@@ -456,7 +456,7 @@ xmlns:th="http://www.thymeleaf.org">
 					}
 				});
 			});
-		</script>
+			</script>
 
 		<div class="section_main section2">
 			<div class="inner">

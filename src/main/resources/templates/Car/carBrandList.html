@@ -1,40 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- 스타일 -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/html5_reset.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/board.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/utill.css">
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery-latest.min.js"></script>
+    <script src="/assets/js/jquery.bxslider.js"></script>
+    <script src="/assets/js/jquery.tabify.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <!-- script -->
+
 </head>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<body class="has-js" style="">
+    <th:block th:replace="fragments/header :: headerFragment"></th:block>
 
-<body>
-    <!-- nav bar -->
-    <div class="container">
-        <header
-            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house"
-                    viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
-                    <path fill-rule="evenodd"
-                        d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
-                </svg>
-            </a>
-
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/carbrand" class="nav-link px-2 link-secondary">Car Brand</a></li>
-                <li><a href="/board" class="nav-link px-2 link-dark">sample auto Magazine</a></li>
-                <li><a href="/service" class="nav-link px-2 link-dark">sample auto Service</a></li>
-                <li><a href="/about" class="nav-link px-2 link-dark">About us</a></li>
-            </ul>
-        </header>
+    <div class="sub_top sub_top1">
+        <div class="ment">
+            <h2>Car Brand</h2>
+            <p>A1 auto</p>
+        </div>
     </div>
-    
-    <!-- car brand list -->
-    <p> car brand list</p>
+
+    <div class="container">
+        <a href="tel:1899-5875" class="btn_inqury_quick1"><img src="/assets/images/Q_menu.png" alt="빠른견적문의"></a>
+        <a href="sub6.html" class="btn_inqury_quick"><img src="/assets/images/btn_inqury_m.png" alt="빠른견적문의"></a>
+        <div class="sub_cont sub_1_1">
+            <h3 class="tit_sub">Car Brand <p>고객님의 차에 대한 열정을 담아 "가장 완벽한 견적"을 제안하다.</p>
+            </h3>
+            <div class="icon_line"><strong><img src="/assets/images/icon_car_tit.jpg" alt=""></strong></div>
+            <div class="list_car_brand">
+                <ul>
+                    <li>
+                        <a href="sub2.html?srh_brand=1">
+                            <img src="/assets/images/img_car_brand_1.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=2">
+                            <img src="/assets/images/img_car_brand_2.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=4">
+                            <img src="/assets/images/img_car_brand_4.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=5">
+                            <img src="/assets/images/img_car_brand_5.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=3">
+                            <img src="/assets/images/img_car_brand_3.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=34">
+                            <img src="/assets/images/img_car_brand_34.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=15">
+                            <img src="/assets/images/img_car_brand_15.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=38">
+                            <img src="/assets/images/img_car_brand_38.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=26">
+                            <img src="/assets/images/img_car_brand_26.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=13">
+                            <img src="/assets/images/img_car_brand_13.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=41">
+                            <img src="/assets/images/img_car_brand_41.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=27">
+                            <img src="/assets/images/img_car_brand_27.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=43">
+                            <img src="/assets/images/img_car_brand_43.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=25">
+                            <img src="/assets/images/img_car_brand_25.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=31">
+                            <img src="/assets/images/img_car_brand_31.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=17">
+                            <img src="/assets/images/img_car_brand_17.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=37">
+                            <img src="/assets/images/img_car_brand_37.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=36">
+                            <img src="/assets/images/img_car_brand_36.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=19">
+                            <img src="/assets/images/img_car_brand_19.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=29">
+                            <img src="/assets/images/img_car_brand_29.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=20">
+                            <img src="/assets/images/img_car_brand_20.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=11">
+                            <img src="/assets/images/img_car_brand_11.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=40">
+                            <img src="/assets/images/img_car_brand_40.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=23">
+                            <img src="/assets/images/img_car_brand_23.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=24">
+                            <img src="/assets/images/img_car_brand_24.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=22">
+                            <img src="/assets/images/img_car_brand_22.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=33">
+                            <img src="/assets/images/img_car_brand_33.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=35">
+                            <img src="/assets/images/img_car_brand_35.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=42">
+                            <img src="/assets/images/img_car_brand_42.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=14">
+                            <img src="/assets/images/img_car_brand_14.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=28">
+                            <img src="/assets/images/img_car_brand_28.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=18">
+                            <img src="/assets/images/img_car_brand_18.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=16">
+                            <img src="/assets/images/img_car_brand_16.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=6">
+                            <img src="/assets/images/img_car_brand_6.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=7">
+                            <img src="/assets/images/img_car_brand_7.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=8">
+                            <img src="/assets/images/img_car_brand_8.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=9">
+                            <img src="/assets/images/img_car_brand_9.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=10">
+                            <img src="/assets/images/img_car_brand_10.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=39">
+                            <img src="/assets/images/img_car_brand_39.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=12">
+                            <img src="/assets/images/img_car_brand_12.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=21">
+                            <img src="/assets/images/img_car_brand_21.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=30">
+                            <img src="/assets/images/img_car_brand_30.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=32">
+                            <img src="/assets/images/img_car_brand_32.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sub2.html?srh_brand=44">
+                            <img src="/assets/images/img_car_brand_44.jpg" alt="">
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+
+        </div>
+        <!-- //sub_cont -->
+    </div>
+    <!-- //container -->
+    <th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </body>
+
 </html>
