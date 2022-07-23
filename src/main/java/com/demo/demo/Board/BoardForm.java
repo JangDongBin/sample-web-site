@@ -24,11 +24,15 @@ public class BoardForm {
 
     @NotBlank
     @Length(min = 3, max = 20)
-    private String CategoryField;
+    private String titleField;
+
+    @NotBlank
+    @Length(min = 3, max = 20)
+    private String categoryField;
 
     @NotBlank
     @Length(min = 5)
-    private String ContentField;
+    private String contentField;
 
     @NotBlank
     private String imgName;

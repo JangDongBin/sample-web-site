@@ -1,67 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+</html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>상품 추가</title>
 </head>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-<body>
-    <!-- nav bar -->
+<body>    
     <div class="container">
-        <header
-            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house"
-                    viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
-                    <path fill-rule="evenodd"
-                        d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
-                </svg>
-            </a>
+        <main>
+            <div class="col-8 m-auto">
+                <form th:action="@{/admin/board-add}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                    <input class="form-control" type="hidden" name="id" id="id">
 
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/admin/page" class="nav-link px-2 link-secondary">admin page setting</a></li>
-                <li><a href="/admin/board" class="nav-link px-2 link-dark">admin page board create</a></li>
-                <li><a href="/admin/banner" class="nav-link px-2 link-dark">admin banner setting</a></li>
-            </ul>
-        </header>
-    </div>
-    
-    <!-- board detali info -->
-    <div class="container">
-        <form th:action="@{/admin/board-add}" th:object="${boardForm}" class="needs-validation" method="post">
-            <input class="form-control" type="hidden" th:field="*{id}">
-            <hr class="my-4">
-            <h4 class="mb-5">글작성</h4>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="title" class="form-label">제목</label>
+                            <input class="form-control" type="text" name="title" id="title" placeholder="제목을 입력하세요." required>
+                            <div class="invalid-feedback">
+                                제목을 입력해주세요.
+                            </div>
 
-            <div class="row mb-3">
-                <label for="TitleField" class="form-label">글 제목</label>
-                <input class="form-control" type="text" name="" id="" th:field="*{TitleField}">
-                <small class="form-text text-danger" th:if="${#fields.hasErrors('TitleField')}"
-                    th:errors="*{TitleField}">Title error</small>
+                            <label for="userid" class="form-label">작성자</label>
+                            <input class="form-control" type="text" name="userid" id="userid" placeholder="작성자" required>
+                            <div class="invalid-feedback">
+                                제목을 입력해주세요.
+                            </div>
 
-                <label for="useridField" class="form-label">작성자</label>
-                <input class="form-control" type="text" name="" id="" th:field="*{useridField}">
+                            <textarea name="content" id="content" class="form-control" rows="50" placeholder="글을 작성해 주세요(5글자 이상)" required></textarea>
+                            <div class="invalid-feedback">
+                                글을 작성해주세요(5글자 이상).
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="text" class="form-label">사진 등록</label>
+                            <input type="file" class="form-control" id="imgFile" name="imgFile">
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn float-right">글 등록</button>
+                        <input type="button" class="btn btn-secondary btn float-right" onclick="location.href='/item/list'"value="취소">
+                    </div>
+                </form>
             </div>
-
-            <div class="row mb-3">
-                <label for="ContentField" class="form-label">내용</label>
-                <textarea th:field="*{ContentField}" class="form-control" rows="10"></textarea>
-                <small class="form-text text-danger" th:if="${#fields.hasErrors('ContentField')}"
-                    th:errors="*{ContentField}">Text error</small>
-            </div>
-
-            <div class="col-12">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">작성</button>
-                <button class="btn btn-danger btn-lg btn-block" type="button" onclick="href='/admin'">취소</button>
-            </div>
-        </form>
+        </main>
     </div>
 </body>
+
 </html>

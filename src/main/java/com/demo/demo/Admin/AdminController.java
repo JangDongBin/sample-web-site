@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.demo.demo.Board.Board;
 import com.demo.demo.Board.BoardForm;
 import com.demo.demo.Board.BoardFormValidator;
-//import com.demo.demo.Board.BoardRepository;
+import com.demo.demo.Board.BoardRepository;
 import com.demo.demo.Board.BoardService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RequestMapping("/admin")
 public class AdminController {
-    //private final BoardRepository boardRepository;
+    private final BoardRepository boardRepository;
     private final BoardService boardService;
     private final BoardFormValidator boardFormValidator;
 
@@ -49,18 +50,15 @@ public class AdminController {
     //관리자 글쓰기
     @GetMapping("/board")
     public String admin_board(Model model, @RequestParam(required = false) Long id){
-        boardService.detailProcess(model, id);
+        boardService.newBoardForm(model, id);
         return "Admin/admin_board";
     }
 
     @PostMapping("/board-add")
-    public String Post_AddBoard(@Valid BoardForm boardForm, Errors errors, Model model) {
-        if (errors.hasErrors()) {
-            return "Admin/admin_board";
-        }
-        System.out.println(boardForm);
-        Board newbBoard = boardService.updateProcess(boardForm);
+    public String Post_AddBoard(BoardForm boardForm, MultipartFile imgFile, Model model) {
+        Board newbBoard = boardService.boardInsert(boardForm, imgFile);
         return "redirect:/board/detail-board?id=" + newbBoard.getId();
+        
     }
 
     @GetMapping("/banner")

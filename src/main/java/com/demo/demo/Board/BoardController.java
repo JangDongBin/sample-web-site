@@ -19,9 +19,8 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping("")
-    public String boardList(Model model, @PageableDefault(size = 20) Pageable pageable, @RequestParam(required = false, defaultValue = "") String searchString){
-        Page<Board> boardPagingList = boardRepository.findByCategoryOrderByIdDesc(searchString, pageable);
-
+    public String boardList(Model model, @PageableDefault(size = 20) Pageable pageable){
+        Page<Board> boardPagingList = boardRepository.findAll(pageable);
         int startPage = Math.max(1, (boardPagingList.getPageable().getPageNumber() / pageable.getPageSize()) * pageable.getPageSize() + 1);
         int endPage = Math.min(boardPagingList.getTotalPages(), startPage + pageable.getPageSize() - 1);
 
@@ -29,7 +28,6 @@ public class BoardController {
         model.addAttribute("endPage", endPage);
         model.addAttribute("list", boardPagingList);
 
-        model.addAttribute("searchString", searchString);
         model.addAttribute("title", "리스트");
 
         return "Board/boardList";
@@ -37,7 +35,7 @@ public class BoardController {
 
     @GetMapping("/detail-board")
     public String DetailBoard(Model model, @RequestParam Long id) {
-        boardService.detailProcess(model, id);
+        boardService.boardView(model, id);
         return "Board/boardDetail";
     }
     

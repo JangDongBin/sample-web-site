@@ -27,6 +27,8 @@ public class Board {
 
     private String userid; //작성자
 
+    private String title;
+
     @Column(length = 40)
     private String category; //카테고리
 

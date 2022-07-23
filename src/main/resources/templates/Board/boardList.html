@@ -1,5 +1,7 @@
-<!doctype html>
-<html lang="ko">
+<!doctype html>    
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+</html>
 
 <head>
     <meta charset="UTF-8">
@@ -25,7 +27,7 @@
     <th:block th:replace="fragments/header :: headerFragment"></th:block>
 
     <div class="blind">
-        <a href="#container">본문 바로가기</a>
+        <a href="/">본문 바로가기</a>
     </div>
 
     <div class="sub_top magazine">
@@ -53,7 +55,6 @@
 
             <div class="wrap_magazine">
                 <div class="inner">
-
                     <div>
                         <div>
                             총 건수 : <span th:text="${list.TotalElements}">15</span>
@@ -61,160 +62,44 @@
 
                         <span th:if="${list.TotalElements < 1 }">데이터가 없습니다.</span>
 
-                        <div th:each="item : ${list}">
+                        <div th:each="board : ${list}">
                             <div class="card">
                                 <!-- 대표 이미지 -->
                                 <div style="width:16rem;">
-                                    <img class="card-img-top" th:src="@{${item.getImgPath()}}" alt=""  height="225px;" width="225px;"/>
+                                    <img class="card-img-top" th:src="@{${board.getImgPath()}}" alt=""  height="225px;" width="225px;"/>
                                 </div>
                                 
                                 <div class="card-body p-4">
                                     <div class="text-center">
-                                        <!-- 제품 명-->
-                                        <h5 class="fw-bolder" th:text="${item.getName()}">상품명</h5>
-                                        <!-- 제품 가격-->
-                                        <p th:text="|${item.getPrice()} 원|">가격</p>
+                                        <h5 class="fw-bolder" th:text="${board.getTitle}">제목</h5>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                                        th:href="@{/item/detail/?id={id}(id=${item.getId()})}">상세보기</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" th:href="@{/board/detail-board/?id={id}(id=${board.getId()})}"></a></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-
-
-<!--
-                    <ul>
-                        <li>
-                            <a href="sub5.html?idx=177&curpage=1&srh_cate=1">
-                                <span class="label">출고후기</span>
-                                <div class="img"><img src="/_upload/magazine/831118472.jpg" alt="" class="" width="273"
-                                        height="218" /></div>
-                                <div class="ment">
-                                    <p class="txt">BMW M440i </p>
-                                    <p class="date">
-                                        <span style="float:left;">2022.07.04</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="sub5.html?idx=176&curpage=1&srh_cate=1">
-                                <span class="label">출고후기</span>
-                                <div class="img"><img src="/_upload/magazine/9393522902.jpg" alt="" class="" width="273"
-                                        height="218" /></div>
-                                <div class="ment">
-                                    <p class="txt">쏘렌토</p>
-                                    <p class="date">
-                                        <span style="float:left;">2022.06.20</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="sub5.html?idx=175&curpage=1&srh_cate=1">
-                                <span class="label">출고후기</span>
-                                <div class="img"><img src="/_upload/magazine/4618575046.jpg" alt="" class="" width="273"
-                                        height="218" /></div>
-                                <div class="ment">
-                                    <p class="txt">벤츠 E350</p>
-                                    <p class="date">
-                                        <span style="float:left;">2022.06.11</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="sub5.html?idx=174&curpage=1&srh_cate=1">
-                                <span class="label">출고후기</span>
-                                <div class="img"><img src="/_upload/magazine/913818306.jpg" alt="" class="" width="273"
-                                        height="218" /></div>
-                                <div class="ment">
-                                    <p class="txt">BMW 520i </p>
-                                    <p class="date">
-                                        <span style="float:left;">2022.06.07</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="sub5.html?idx=170&curpage=1&srh_cate=1">
-                                <span class="label">출고후기</span>
-                                <div class="img"><img src="/_upload/magazine/6076387306.jpg" alt="" class="" width="273"
-                                        height="218" /></div>
-                                <div class="ment">
-                                    <p class="txt">쏘렌토 출고</p>
-                                    <p class="date">
-                                        <span style="float:left;">2022.05.17</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="sub5.html?idx=169&curpage=1&srh_cate=1">
-                                <span class="label">출고후기</span>
-                                <div class="img"><img src="/_upload/magazine/5909357718.jpg" alt="" class="" width="273"
-                                        height="218" /></div>
-                                <div class="ment">
-                                    <p class="txt">카니발 출고</p>
-                                    <p class="date">
-                                        <span style="float:left;">2022.05.16</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="sub5.html?idx=168&curpage=1&srh_cate=1">
-                                <span class="label">출고후기</span>
-                                <div class="img"><img src="/_upload/magazine/2623958736.jpg" alt="" class="" width="273"
-                                        height="218" /></div>
-                                <div class="ment">
-                                    <p class="txt">BMW X7 출고</p>
-                                    <p class="date">
-                                        <span style="float:left;">2022.05.03</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="sub5.html?idx=165&curpage=1&srh_cate=1">
-                                <span class="label">출고후기</span>
-                                <div class="img"><img src="/_upload/magazine/3281603069.jpg" alt="" class="" width="273"
-                                        height="218" /></div>
-                                <div class="ment">
-                                    <p class="txt">랭글러 출고후기</p>
-                                    <p class="date">
-                                        <span style="float:left;">2022.04.15</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul> -->
                 </div>
 
-                <div class="Board-pagination" th:if="${list.TotalElements > 0}">
+                <div th:if="${list.TotalElements > 0}">
                     <ul class="pagination justify-content-center">
                         <!-- 이전 페이지  -->
                         <li class="page-item " th:classappend="${startPage < list.pageable.pageSize} ? 'disabled'">
                             <a class="page-link"
-                                th:href="@{/board/board-list(page=${startPage - list.pageable.pageSize-1}, searchString=${param.searchString})}"
-                                tabindex="-1" aria-disabled="true">Previous</a>
+                                th:href="@{/board/board-list(page=${startPage - list.pageable.pageSize-1})}" tabindex="-1" aria-disabled="true">Previous
+                            </a>
                         </li>
                         <!-- 페이지 10개 -->
                         <li class="page-item" th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'"
-                            th:each="i : ${#numbers.sequence(startPage, endPage)}"><a class="page-link"
-                                th:href="@{/board/board-list(page=${i-1}, searchString=${param.searchString})}"
-                                th:text="${i}">1</a>
+                            th:each="i : ${#numbers.sequence(startPage, endPage)}"><a class="page-link" th:href="@{/board/board-list(page=${i-1})}" th:text="${i}">1</a>
                         </li>
                         <!-- 다음 페이지 -->
                         <li class="page-item "
                             th:classappend="${startPage + list.pageable.pageSize >  list.totalPages } ? 'disabled'">
-                            <a class="page-link"
-                                th:href="@{/board/board-list(page=${startPage + list.pageable.pageSize -1 }, searchString=${param.searchString})}">Next</a>
+                            <a class="page-link" th:href="@{/board/board-list(page=${startPage + list.pageable.pageSize -1 })}">Next</a>
                         </li>
                     </ul>
                 </div>
