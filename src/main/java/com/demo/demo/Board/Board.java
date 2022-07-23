@@ -33,7 +33,7 @@ public class Board {
     @Column(length = 600)
     private String content; //내용
 
-    private String imgName; //상품 이미지
+    private String imgName; //이미지
 
     private String imgPath; //이미지 경로
 
