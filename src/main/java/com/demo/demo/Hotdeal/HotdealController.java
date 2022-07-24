@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HotdealController {
     @GetMapping("/hotdeal")
-    public String hotdeal(){
+    public String hotDeal(){
         return "hotdeal/hotdeal";
     }
 }

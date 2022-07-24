@@ -25,7 +25,7 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id; //글번호
 
-    private String userid; //작성자
+    private String userId; //작성자
 
     private String title;
 
@@ -40,8 +40,8 @@ public class Board {
     private String imgPath; //이미지 경로
 
     @CreationTimestamp
-    private LocalDateTime create_date_time; //생성 시간
+    private LocalDateTime createDateTime; //생성 시간
 
     @CreationTimestamp
-    private LocalDateTime update_date_time; //수정 시간
+    private LocalDateTime updateDateTime; //수정 시간
 }

@@ -87,18 +87,15 @@
                 <div th:if="${list.TotalElements > 0}">
                     <ul class="pagination justify-content-center">
                         <!-- 이전 페이지  -->
-                        <li class="page-item " th:classappend="${startPage < list.pageable.pageSize} ? 'disabled'">
-                            <a class="page-link"
-                                th:href="@{/board/board-list(page=${startPage - list.pageable.pageSize-1})}" tabindex="-1" aria-disabled="true">Previous
-                            </a>
+                        <li th:classappend="${startPage < list.pageable.pageSize} ? 'disabled'">
+                            <a class="page-link" th:href="@{/board/board-list(page=${startPage - list.pageable.pageSize-1})}" tabindex="-1" aria-disabled="true">Previous </a>
                         </li>
                         <!-- 페이지 10개 -->
-                        <li class="page-item" th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'"
-                            th:each="i : ${#numbers.sequence(startPage, endPage)}"><a class="page-link" th:href="@{/board/board-list(page=${i-1})}" th:text="${i}">1</a>
+                        <li th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'" th:each="i : ${#numbers.sequence(startPage, endPage)}">
+                            <a class="page-link" th:href="@{/board/board-list(page=${i-1})}" th:text="${i}">1</a>
                         </li>
                         <!-- 다음 페이지 -->
-                        <li class="page-item "
-                            th:classappend="${startPage + list.pageable.pageSize >  list.totalPages } ? 'disabled'">
+                        <li th:classappend="${startPage + list.pageable.pageSize >  list.totalPages } ? 'disabled'">
                             <a class="page-link" th:href="@{/board/board-list(page=${startPage + list.pageable.pageSize -1 })}">Next</a>
                         </li>
                     </ul>

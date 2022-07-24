@@ -51,20 +51,20 @@ public class BoardService {
         if (boardForm.getId() == null) {
             newBoard = Board.builder()
                     .id(null)
-                    .userid(boardForm.getUseridField())
-                    .title(boardForm.getTitleField())
-                    .category(boardForm.getCategoryField())
-                    .content(boardForm.getContentField())
+                    .userId(boardForm.getUserId())
+                    .title(boardForm.getTitle())
+                    .category(boardForm.getCategory())
+                    .content(boardForm.getContent())
                     .imgName(imgName)
                     .imgPath("/files/" + imgName)
                     .build();
         } else {
             newBoard = Board.builder()
                     .id(boardForm.getId())
-                    .userid(boardForm.getUseridField())
-                    .title(boardForm.getTitleField())
-                    .category(boardForm.getCategoryField())
-                    .content(boardForm.getContentField())
+                    .userId(boardForm.getUserId())
+                    .title(boardForm.getTitle())
+                    .category(boardForm.getCategory())
+                    .content(boardForm.getContent())
                     .imgName(imgName)
                     .imgPath("/files/" + imgName)
                     .build();

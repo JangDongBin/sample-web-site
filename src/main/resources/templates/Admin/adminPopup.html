@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업관리</title>
+    <script type="text/javascript" src="/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+</head>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<body>
+    <!-- nav bar -->
+    <div class="container">
+        <header
+            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                    <path fill-rule="evenodd"
+                        d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                </svg>
+            </a>
+
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/admin/menu" class="nav-link px-2 link-secondary">메뉴관리</a></li>
+                <li><a href="/admin/desgin" class="nav-link px-2 link-dark">디자인관리</a></li>
+                <li><a href="/admin/member" class="nav-link px-2 link-dark">회원관리</a></li>
+                <li><a href="/admin/popup" class="nav-link px-2 link-dark">팝업관리</a></li>
+                <li><a href="/admin/board" class="nav-link px-2 link-dark">게시판관리</a></li>
+                <li><a href="/admin/posting" class="nav-link px-2 link-dark">게시물관리</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <!-- popup -->
+    <div>
+        <form th:action="@{/admin/popup}" class="form-horizontal" method="post" enctype="multipart/form-data">
+            <input class="form-control" type="hidden" name="id" id="id">
+
+            <div class="row">
+                <div class="col-12">
+                    <label for="popupName" class="form-label">팝업 이름</label>
+                    <input class="form-control" type="text" name="popupName" id="popupName" placeholder="팝업이름을 입력하세요." required>
+
+                    <div id="smarteditor">
+                        <textarea name="content" id="content" rows="20" placeholder="팝업 내용을입력하세요." style="width: 500px"></textarea>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="startDateTime">시작일
+                        <input type="date" id="startDateTime"/>
+                    </label>
+
+                    <label for="endDateTime">종료일
+                        <input type="date" id="endDateTime"/>
+                    </label>
+                </div>
+
+                <div>
+                    <label><input type="radio" name="popupType" id="popupType" value="layers">레이어</label>
+                    <label><input type="radio" name="popupType" id="popupType" value="window">윈도우</label>
+                </div>
+
+                <div>
+                    <label><input type="radio" name="running" id="running" value="use">사용중</label>
+                    <label><input type="radio" name="running" id="running" value="wait">대기</label>
+                    <label><input type="radio" name="running" id="running" value="stop">사용중지</label>
+                </div>
+
+                <div class="col-12">
+                    <label for="text" class="form-label">사진 등록</label>
+                    <input type="file" class="form-control" id="imgFile" name="imgFile">
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn float-right">저장</button>
+                <input type="button" class="btn btn-secondary btn float-right" onclick="location.href='/admin/popup'" value="취소">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
+
+<script>
+    //현재 날짜로 가져오기
+    document.getElementById('startDateTime').value = new Date().toISOString().substring(0, 10);
+    document.getElementById('endDateTime').value = new Date().toISOString().substring(0, 10);
+</script>
+
+<!--
+<script>
+    let oEditors = []
+
+    smartEditor = function () {
+        console.log("Naver SmartEditor")
+        nhn.husky.EZCreator.createInIFrame({
+            oAppRef: oEditors,
+            elPlaceHolder: "smarteditor",
+            sSkinURI: "./static/smarteditor/SmartEditor2Skin.html",
+            fCreator: "createSEditor2"
+        })
+    }
+
+    $(document).ready(function () {
+        smartEditor()
+    })
+</script>
+-->

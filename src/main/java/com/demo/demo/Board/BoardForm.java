@@ -20,19 +20,19 @@ public class BoardForm {
     @NotBlank
     @Length(min = 3, max = 30)
     @Pattern(regexp = "^[a-z0-9_-]{3,20}$")
-    private String useridField;
+    private String userId;
 
     @NotBlank
     @Length(min = 3, max = 20)
-    private String titleField;
+    private String title;
 
     @NotBlank
     @Length(min = 3, max = 20)
-    private String categoryField;
+    private String category;
 
     @NotBlank
     @Length(min = 5)
-    private String contentField;
+    private String content;
 
     @NotBlank
     private String imgName;

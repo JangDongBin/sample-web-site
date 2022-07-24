@@ -1,23 +1,11 @@
 package com.demo.demo.Admin;
 
-import javax.validation.Valid;
-
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.demo.demo.Board.Board;
-import com.demo.demo.Board.BoardForm;
-import com.demo.demo.Board.BoardFormValidator;
-import com.demo.demo.Board.BoardRepository;
-import com.demo.demo.Board.BoardService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,44 +13,61 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RequestMapping("/admin")
 public class AdminController {
-    private final BoardRepository boardRepository;
-    private final BoardService boardService;
-    private final BoardFormValidator boardFormValidator;
-
-
-    @InitBinder("boardForm")
-    public void InitBinder(WebDataBinder webDataBinder) {
-        webDataBinder.addValidators(boardFormValidator);
-    }
-
+    private final AdminService adminService;
 
     @GetMapping("")
-    public String admin_main(){
-        return "Admin/admin_main";
+    public String adminMain(){
+        return "Admin/adminMain";
     }
 
-    @GetMapping("/page")
-    public String admin_page(){
-        return "Admin/admin_page";
+    @GetMapping("/menu")
+    public String adminMenu(){
+        return "Admin/adminMenu";
     }
 
-    
-    //관리자 글쓰기
-    @GetMapping("/board")
-    public String admin_board(Model model, @RequestParam(required = false) Long id){
-        boardService.newBoardForm(model, id);
-        return "Admin/admin_board";
+    @GetMapping("/desgin")
+    public String adminDesgin(){
+        return "Admin/adminDesgin";
     }
 
-    @PostMapping("/board-add")
-    public String Post_AddBoard(BoardForm boardForm, MultipartFile imgFile, Model model) {
-        Board newbBoard = boardService.boardInsert(boardForm, imgFile);
-        return "redirect:/board/detail-board?id=" + newbBoard.getId();
+    @GetMapping("/member")
+    public String adminMember(){
+        return "Admin/adminMember";
+    }
+
+    @GetMapping("/popup")
+    public String adminPopup(Model model){
+        model.addAttribute("popupSetting", new AdminPopupForm());
+        return "Admin/adminPopup";
+    }
+
+    @PostMapping("/popup")
+    public String adminPopupPost(Model model, Long id, AdminPopupForm adminPopupForm, MultipartFile imgFile) throws Exception{
         
+        if(imgFile == null){
+            if (adminPopupForm.getPopupName() == null || adminPopupForm.getContent() == null
+                    || adminPopupForm.getStartDateTime() == null || adminPopupForm.getEndDateTime() == null
+                    || adminPopupForm.getPopupType() == null || adminPopupForm.getRunning() == null
+                    || imgFile == null) {
+                        System.out.println("\n" + adminPopupForm + "\n");
+                        System.out.println("\n" + imgFile + "\n");
+                        return "redirect:/admin/popup";
+            }
+        }
+        
+        //System.out.println(adminPopupForm);
+        AdminPopup adminPopup = adminService.insertPopup(adminPopupForm, imgFile);
+        System.out.println(adminPopup);
+        return "redirect:/admin";
     }
 
-    @GetMapping("/banner")
-    public String admin_banner(){
-        return "Admin/admin_banner";
+    @GetMapping("/board")
+    public String adminBoard(){
+        return "Admin/adminBoard";
+    }
+
+    @GetMapping("/posting")
+    public String adminPosting(){
+        return "Admin/adminPosting";
     }
 }

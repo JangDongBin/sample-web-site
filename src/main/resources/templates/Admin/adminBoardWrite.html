@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 추가</title>
+</head>
+
+<body>
+    <div class="container">
+        <main>
+            <div class="col-8 m-auto">
+                <form th:action="@{/admin/board-add}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                    <input class="form-control" type="hidden" name="id" id="id">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="title" class="form-label">제목</label>
+                            <input class="form-control" type="text" name="title" id="title" placeholder="제목을 입력하세요." required>
+                            <div class="invalid-feedback">
+                                제목을 입력해주세요.
+                            </div>
+
+                            <label for="userid" class="form-label">작성자</label>
+                            <input class="form-control" type="text" name="userid" id="userid" placeholder="작성자" required>
+                            <div class="invalid-feedback">
+                                제목을 입력해주세요.
+                            </div>
+
+                            <textarea name="content" id="content" class="form-control" rows="50" placeholder="글을 작성해 주세요(5글자 이상)" required></textarea>
+                            <div class="invalid-feedback">
+                                글을 작성해주세요(5글자 이상).
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="text" class="form-label">사진 등록</label>
+                            <input type="file" class="form-control" id="imgFile" name="imgFile">
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn float-right">글 등록</button>
+                        <input type="button" class="btn btn-secondary btn float-right" onclick="location.href='/item/list'"value="취소">
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
