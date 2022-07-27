@@ -9,8 +9,11 @@
     <script type="text/javascript" src="/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
 
-<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
 <body>
     <!-- nav bar -->
     <div class="container">
@@ -41,49 +44,51 @@
     <div>
         <form th:action="@{/admin/popup}" class="form-horizontal" method="post" enctype="multipart/form-data">
             <input class="form-control" type="hidden" name="id" id="id">
+            
+            <ul>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="popupName" class="form-label">팝업 이름</label>
+                        <input class="form-control" type="text" name="popupName" id="popupName"
+                            placeholder="팝업이름을 입력하세요." required>
 
-            <div class="row">
-                <div class="col-12">
-                    <label for="popupName" class="form-label">팝업 이름</label>
-                    <input class="form-control" type="text" name="popupName" id="popupName" placeholder="팝업이름을 입력하세요." required>
-
-                    <div id="smarteditor">
-                        <textarea name="content" id="content" rows="20" placeholder="팝업 내용을입력하세요." style="width: 500px"></textarea>
+                        <div id="smarteditor">
+                            <textarea name="content" id="content" rows="20" placeholder="팝업 내용을입력하세요."
+                                style="width: 500px"></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    <label for="startDateTime">시작일
-                        <input type="date" id="startDateTime"/>
-                    </label>
+                    <div>
+                        <label for="startDateTime">시작일
+                            <input type="date" id="startDate" name="startDate">
+                        </label>
 
-                    <label for="endDateTime">종료일
-                        <input type="date" id="endDateTime"/>
-                    </label>
-                </div>
+                        <label for="endDateTime">종료일
+                            <input type="date" id="endDate" name="endDate">
+                        </label>
+                    </div>
 
-                <div>
-                    <label><input type="radio" name="popupType" id="popupType" value="layers">레이어</label>
-                    <label><input type="radio" name="popupType" id="popupType" value="window">윈도우</label>
-                </div>
+                    <div>
+                        <label><input type="radio" name="popupType" id="popupType" value="layers">레이어</label>
+                        <label><input type="radio" name="popupType" id="popupType" value="window">윈도우</label>
+                    </div>
 
-                <div>
-                    <label><input type="radio" name="running" id="running" value="use">사용중</label>
-                    <label><input type="radio" name="running" id="running" value="wait">대기</label>
-                    <label><input type="radio" name="running" id="running" value="stop">사용중지</label>
-                </div>
+                    <div>
+                        <label><input type="radio" name="running" id="running" value="use">사용중</label>
+                        <label><input type="radio" name="running" id="running" value="wait">대기</label>
+                        <label><input type="radio" name="running" id="running" value="stop">사용중지</label>
+                    </div>
 
-                <div class="col-12">
-                    <label for="text" class="form-label">사진 등록</label>
+
                     <input type="file" class="form-control" id="imgFile" name="imgFile">
                 </div>
-            </div>
+            </ul>
 
-            <hr class="my-4">
 
             <div class="col-12">
                 <button type="submit" class="btn btn-primary btn float-right">저장</button>
-                <input type="button" class="btn btn-secondary btn float-right" onclick="location.href='/admin/popup'" value="취소">
+                <input type="button" class="btn btn-secondary btn float-right" onclick="location.href='/admin/popup'"
+                    value="취소">
             </div>
         </form>
     </div>
@@ -93,8 +98,8 @@
 
 <script>
     //현재 날짜로 가져오기
-    document.getElementById('startDateTime').value = new Date().toISOString().substring(0, 10);
-    document.getElementById('endDateTime').value = new Date().toISOString().substring(0, 10);
+    document.getElementById('startDate').value = new Date().toISOString().substring(0, 10);
+    document.getElementById('endDate').value = new Date().toISOString().substring(0, 10);
 </script>
 
 <!--

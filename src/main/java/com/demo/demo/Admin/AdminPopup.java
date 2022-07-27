@@ -1,6 +1,6 @@
 package com.demo.demo.Admin;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,9 +19,9 @@ public class AdminPopup {
     
     private String content;
     
-    private LocalDateTime startDateTime;
+    private LocalDate startDate;
     
-    private LocalDateTime endDateTime;
+    private LocalDate endDate;
     
     private String popupType;
     

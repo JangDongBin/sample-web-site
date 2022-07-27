@@ -43,23 +43,17 @@ public class AdminController {
     }
 
     @PostMapping("/popup")
-    public String adminPopupPost(Model model, Long id, AdminPopupForm adminPopupForm, MultipartFile imgFile) throws Exception{
-        
-        if(imgFile == null){
-            if (adminPopupForm.getPopupName() == null || adminPopupForm.getContent() == null
-                    || adminPopupForm.getStartDateTime() == null || adminPopupForm.getEndDateTime() == null
-                    || adminPopupForm.getPopupType() == null || adminPopupForm.getRunning() == null
-                    || imgFile == null) {
-                        System.out.println("\n" + adminPopupForm + "\n");
-                        System.out.println("\n" + imgFile + "\n");
-                        return "redirect:/admin/popup";
-            }
+    public String adminPopupPost(AdminPopupForm adminPopupForm, @RequestParam(required = false) MultipartFile imgFile) throws Exception {
+        if (imgFile == null || adminPopupForm.getPopupName() == null || adminPopupForm.getContent() == null
+                            || adminPopupForm.getStartDate() == null || adminPopupForm.getEndDate() == null
+                            || adminPopupForm.getPopupType() == null || adminPopupForm.getRunning() == null) {
+            System.out.println("\n" + adminPopupForm + "\n");
+            return "redirect:/admin/popup";
         }
-        
-        //System.out.println(adminPopupForm);
+        System.out.println(adminPopupForm);
         AdminPopup adminPopup = adminService.insertPopup(adminPopupForm, imgFile);
         System.out.println(adminPopup);
-        return "redirect:/admin";
+        return"redirect:/admin";
     }
 
     @GetMapping("/board")
