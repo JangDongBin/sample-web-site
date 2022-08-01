@@ -5,12 +5,94 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>관리자페이지</title>
+    <style>
+    #wrap{
+        height: 100%;
+        padding: 56px 0 0 256px;
+        box-sizing: border-box;
+    }
+
+    #header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 202;
+        height: 56px;
+        box-sizing: border-box;
+        background: #fff;
+    }
+
+    #header .header{
+        display: flex;
+        -ms-align-items: center;
+        align-items: center;
+        min-width: 1024px;
+        letter-spacing: -1px;
+    }
+
+    #haeder .head{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        font-size: 0;
+    }
+
+    #header .util{
+        position: relative;
+        font-size: 0;
+        padding-right: 8px;
+        margin-right: 8px;
+    }
+
+    #header .member{
+        position: relative;
+        margin: 0 24px 0 0;
+    }
+
+    #container{
+        position: relative;
+    }
+
+    #sidebar{
+        position: fixed;
+        z-index: 201;
+        top: 0;
+        left: 0;
+        width: 256px;
+        height: 100%;
+        padding: 56px 0 0;
+        box-sizing: border-box;
+        vertical-align: top;
+        background: #2A3652;
+    }
+
+    #content{
+        min-height: 750px;
+        padding: 0 24px 40px;
+        box-sizing: border-box;
+        vertical-align: top;
+    }
+
+    </style>
 </head>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <body>
+        <div id="wrap">
+            <div id="header">
+                <div class="header">
+                    <div class="head"></div>
+                    <div class="util"></div>
+                    <div class="member"></div>
+                </div>
+            </div>
+
+
+            <div id="container">
+                <div id="sidebar"></div>
+                <div id="content"></div>
+            </div>
+        </div>
     <!-- nav bar -->
     <div class="container">
         <header
