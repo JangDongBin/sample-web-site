@@ -65,4 +65,9 @@ public class AdminController {
     public String adminPosting(){
         return "Admin/adminPosting";
     }
+
+    @GetMapping("/login")
+    public String adminLogin(){
+        return "Admin/adminLogin";
+    }
 }
