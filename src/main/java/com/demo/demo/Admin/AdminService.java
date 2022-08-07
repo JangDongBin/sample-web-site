@@ -30,7 +30,9 @@ public class AdminService {
             UUID uuid = UUID.randomUUID();
             String savedFileName = uuid + "_" + oriImgName; // 저장될 파일명
             imgName = savedFileName;
-            Path saveFile = Paths.get(filePath.getAbsolutePath() + imgName);
+            Path saveFile = Paths.get(filePath.getAbsolutePath() + "/" + imgName);
+
+            System.out.println("file save = "+saveFile.toString());
             imgFile.transferTo(saveFile);
         }
         AdminPopup newAdminPopup;

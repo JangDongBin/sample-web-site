@@ -51,7 +51,7 @@ public class AdminController {
         }
         //System.out.println(System.getProperty("user.dir") + "/src/main/resources/static/filses");
         AdminPopup adminPopup = adminService.insertPopup(adminPopupForm, imgFile);
-        System.out.println(adminPopup);
+        //System.out.println(adminPopup);
         return "redirect:/admin";
     }
 
