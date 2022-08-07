@@ -1,6 +1,8 @@
 package com.demo.demo.Admin;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -28,7 +30,7 @@ public class AdminService {
             UUID uuid = UUID.randomUUID();
             String savedFileName = uuid + "_" + oriImgName; // 저장될 파일명
             imgName = savedFileName;
-            File saveFile = new File(filePath.getAbsolutePath(), imgName);
+            Path saveFile = Paths.get(filePath.getAbsolutePath() + imgName);
             imgFile.transferTo(saveFile);
         }
         AdminPopup newAdminPopup;

@@ -44,11 +44,12 @@ public class AdminController {
 
     @PostMapping("/popup")
     public String adminPopupPost(AdminPopupForm adminPopupForm, @RequestParam(required = false) MultipartFile imgFile) throws Exception {
+        System.out.println(imgFile);
         if (adminPopupForm.getPopupName() == null || adminPopupForm.getContent() == null || adminPopupForm.getStartDate() == null || 
             adminPopupForm.getEndDate() == null || adminPopupForm.getPopupType() == null || adminPopupForm.getRunning() == null) {
             return "redirect:/admin/popup";
         }
-        System.out.println(System.getProperty("user.dir") + "/src/main/resources/static/filses");
+        //System.out.println(System.getProperty("user.dir") + "/src/main/resources/static/filses");
         AdminPopup adminPopup = adminService.insertPopup(adminPopupForm, imgFile);
         System.out.println(adminPopup);
         return "redirect:/admin";
