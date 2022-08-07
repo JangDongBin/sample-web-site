@@ -23,7 +23,7 @@ public class AdminService {
         
         if(!imgFile.isEmpty()){
             String oriImgName = imgFile.getOriginalFilename();
-            String projectPath = System.getProperty("user.dir") + "/src/main/resources/static/filses";
+            String projectPath = System.getProperty("user.dir") + "/src/main/resources/static/files";
             filePath = new File(projectPath);
             // UUID 를 이용하여 파일명 새로 생성
             // UUID - 서로 다른 객체들을 구별하기 위한 클래스
