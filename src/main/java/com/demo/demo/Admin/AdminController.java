@@ -17,57 +17,55 @@ public class AdminController {
     private final AdminService adminService;
 
     @GetMapping("")
-    public String adminMain(){
+    public String adminMain() {
         return "Admin/adminMain";
     }
 
     @GetMapping("/menu")
-    public String adminMenu(){
+    public String adminMenu() {
         return "Admin/adminMenu";
     }
 
     @GetMapping("/desgin")
-    public String adminDesgin(){
+    public String adminDesgin() {
         return "Admin/adminDesgin";
     }
 
     @GetMapping("/member")
-    public String adminMember(){
+    public String adminMember() {
         return "Admin/adminMember";
     }
 
     @GetMapping("/popup")
-    public String adminPopup(Model model, @RequestParam(required = false) Long id){
+    public String adminPopup(Model model, @RequestParam(required = false) Long id) {
         model.addAttribute("popupSetting", new AdminPopupForm());
         return "Admin/adminPopup";
     }
 
     @PostMapping("/popup")
     public String adminPopupPost(AdminPopupForm adminPopupForm, @RequestParam(required = false) MultipartFile imgFile) throws Exception {
-        if (imgFile == null || adminPopupForm.getPopupName() == null || adminPopupForm.getContent() == null
-                            || adminPopupForm.getStartDate() == null || adminPopupForm.getEndDate() == null
-                            || adminPopupForm.getPopupType() == null || adminPopupForm.getRunning() == null) {
-            System.out.println("\n" + adminPopupForm + "\n");
+        if (adminPopupForm.getPopupName() == null || adminPopupForm.getContent() == null || adminPopupForm.getStartDate() == null || 
+            adminPopupForm.getEndDate() == null || adminPopupForm.getPopupType() == null || adminPopupForm.getRunning() == null) {
             return "redirect:/admin/popup";
         }
-        System.out.println(adminPopupForm);
+        
         AdminPopup adminPopup = adminService.insertPopup(adminPopupForm, imgFile);
         System.out.println(adminPopup);
-        return"redirect:/admin";
+        return "redirect:/admin";
     }
 
     @GetMapping("/board")
-    public String adminBoard(){
+    public String adminBoard() {
         return "Admin/adminBoard";
     }
 
     @GetMapping("/posting")
-    public String adminPosting(){
+    public String adminPosting() {
         return "Admin/adminPosting";
     }
 
     @GetMapping("/login")
-    public String adminLogin(){
+    public String adminLogin() {
         return "Admin/adminLogin";
     }
 }
