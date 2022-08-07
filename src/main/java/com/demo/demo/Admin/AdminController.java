@@ -48,7 +48,7 @@ public class AdminController {
             adminPopupForm.getEndDate() == null || adminPopupForm.getPopupType() == null || adminPopupForm.getRunning() == null) {
             return "redirect:/admin/popup";
         }
-        
+        System.out.println(System.getProperty("user.dir") + "/src/main/resources/static/filses");
         AdminPopup adminPopup = adminService.insertPopup(adminPopupForm, imgFile);
         System.out.println(adminPopup);
         return "redirect:/admin";

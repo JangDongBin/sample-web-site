@@ -18,7 +18,7 @@ public class AdminService {
         System.out.println("imgFile = " + imgFile);
         String imgName = "";
         File filePath = null;
-
+        
         if(!imgFile.isEmpty()){
             String oriImgName = imgFile.getOriginalFilename();
             String projectPath = System.getProperty("user.dir") + "/src/main/resources/static/filses";
