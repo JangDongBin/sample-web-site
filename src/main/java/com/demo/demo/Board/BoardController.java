@@ -19,7 +19,7 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping("")
-    public String boardList(Model model, @PageableDefault(size = 10) Pageable pageable, String category){
+    public String boardList(Model model, @PageableDefault(size = 10) Pageable pageable, @RequestParam(required = false, defaultValue = "") String category) {
         Page<Board> boardPagingList = boardRepository.findByCategoryOrderByIdDesc(category, pageable);
         int startPage = Math.max(1, (boardPagingList.getPageable().getPageNumber() / pageable.getPageSize()) * pageable.getPageSize() + 1);
         int endPage = Math.min(boardPagingList.getTotalPages(), startPage + pageable.getPageSize() - 1);
@@ -38,6 +38,5 @@ public class BoardController {
         boardService.boardView(model, id);
         return "Board/boardDetail";
     }
-    
-    
+
 }
