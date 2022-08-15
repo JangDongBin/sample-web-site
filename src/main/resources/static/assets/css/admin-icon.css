@@ -1,0 +1,955 @@
+@charset "utf-8";
+
+/* btnIcon 아이콘형 버튼 */
+a.btnIcon, button.btnIcon, span.btnIcon {
+  position:relative; display:inline-block; overflow:hidden; width:20px; height:20px; font-size:0; line-height:0; vertical-align:middle; white-space:nowrap; background:url('//img.echosting.cafe24.com/ec/v2/ko_KR/sfix_icon_button2.png') 0 0 no-repeat; box-sizing:border-box;
+}
+/*.btnIcon span { display:block; color:transparent; text-indent:200%; }*/
+.btnIcon span { display:block; visibility:hidden; height:100%; font-size:1px; }
+
+.btnNormal em.icoPlus, .btnNormal em.icoMinus, .btnNormal em.icoPause, .btnNormal em.icoLower, .btnNormal em.icoUpper, .btnGeneral em.icoLower, .btnGeneral em.icoUpper,
+.btnNormal em.icoLayer, .btnNormal em.icoLink, .btnLink em.icoLink, .btnCtrl em.icoPlus, .btnCtrl em.icoLink, .btnCtrl em.icoLayer, em.icoPrev {
+  position:relative; display:inline-block; width:10px; height:10px;
+}
+
+.btnNormal em.icoDel, .btnCtrl em.icoDel, .btnNormal em.icoView, .btnNormal em.icoCopy, .btnNormal em.icoList, .btnNormal em.icoRefresh, .btnNormal em.icoURL, .btnNormal em.icoReverse, .btnNormal em.icoResize, .btnNormal em.icoStar,
+.btnNormal em.icoXls, .btnNormal em.icoDoc, .btnNormal em.icoPpt, .btnNormal .icoPdf, .btnNormal em.icoHwp, .btnNormal em.icoText, .btnNormal em.icoZip, .btnNormal em.icoJpg, .btnNormal em.icoPng, .btnNormal em.icoGif, .btnNormal em.icoPrint {
+  display:inline-block; width:11px; height:11px; padding:0; vertical-align:-1px; line-height:0;
+  background:url('//img.echosting.cafe24.com/suio/ko_KR/sfix_icon_button2.png') 0 0 no-repeat;
+}
+
+    /* GROUP1 > button */
+      .btnIcon.icoDel.disabled { opacity:0.5; filter:alpha(opacity=50); }
+      .btnNormal em.icoDel { width:8px; height:10px; background-position:0 -150px }
+        html:lang(vi) .btnNormal em.icoDel { background-image:url('//img.echosting.cafe24.com/suio/vi_VN/sfix_icon_button2.png'); }
+
+      .btnIcon.icoCheck { background-position:-100px 0; }
+      .btnIcon.icoCheck.disabled { opacity:0.5; filter:alpha(opacity=50); }
+
+      .btnIcon.icoPlus { position:relative; width:28px; height:28px; border:1px solid #aeb4c6; border-radius:3px; background-color:#fff; background-image:none; }
+      .btnNormal em.icoPlus,
+      .btnCtrl em.icoPlus { width:10px; height:10px; }
+      .btnIcon.icoPlus:before,
+      .btnNormal em.icoPlus:before,
+      .btnCtrl em.icoPlus:before { content:""; position:absolute; top:50%; left:50%; width:10px; height:2px; margin:-1px 0 0 -5px; background-color:#6b6b6b; }
+      .btnIcon.icoPlus:after,
+      .btnNormal em.icoPlus:after,
+      .btnCtrl em.icoPlus:after { content:""; position:absolute; top:50%; left:50%; width:2px; height:10px; margin:-5px 0 0 -1px; background-color:#6b6b6b;
+        transform:rotate(180deg); -webkit-transform:rotate(180deg); -ms-transform:rotate(180deg); -moz-transform:rotate(180deg);
+      }
+      .btnCtrl em.icoPlus:before,
+      .btnCtrl em.icoPlus:after { background-color:#fff; }
+      .btnIcon.icoPlus.disabled { opacity:0.5; filter:alpha(opacity=50); }
+
+      .btnIcon.icoMinus { position:relative; width:28px; height:28px; border:1px solid #aeb4c6; border-radius:3px; background-color:#fff; background-image:none; }
+      .btnIcon.icoMinus:before{ content:""; position:absolute; top:50%; left:50%; width:10px; height:2px; margin:-1px 0 0 -5px; background-color:#6b6b6b; }
+      .btnNormal em.icoMinus:before { content:""; position:absolute; top:50%; left:50%; width:10px; height:2px; margin:-1px 0 0 0; background-color:#6b6b6b; }
+      .btnNormal em.icoMinus:before { left:0; }
+      .btnIcon.icoMinus.disabled { opacity:0.5; filter:alpha(opacity=50); }
+
+      .btnIcon.icoStar { background-position:-50px 0; }
+      .btnIcon.icoStar.selected { background-position:-50px -50px; }
+      .btnIcon.icoStar.disabled { background-position:-50px -100px; }
+      .btnNormal em.icoStar { margin-left:-2px; margin-right:-1px; background-position:-50px -150px; }
+
+      .btnIcon.icoView { background-position:-150px 0; }
+      .btnIcon.icoView.disabled { opacity:0.5; filter:alpha(opacity=50); }
+      .btnNormal em.icoView { background-position:-150px -150px; }
+
+      .btnIcon.icoEdit { background-position:-200px 0; }
+      .btnIcon.icoEdit.disabled { opacity:0.5; filter:alpha(opacity=50); }
+
+      .btnIcon.icoRefresh { background-position:-250px 0; }
+      .btnIcon.icoRefresh.disabled { opacity:0.5; filter:alpha(opacity=50); }
+
+      .btnIcon.icoComment { background-position:-400px 0; }
+      .btnIcon.icoComment.disabled { opacity:0.5; filter:alpha(opacity=50); }
+
+      .btnIcon.icoReverse { width:14px; height:10px; background-position:-450px -150px; }
+      .btnIcon.icoResize { width:12px; height:11px; background-position:-500px -150px; }
+      .btnIcon.icoDrag { background-position:-600px -150px; }
+
+      .btnIcon.icoURL { background-position:-450px 0; }
+      .btnIcon.icoURL.disabled { opacity:0.5; filter:alpha(opacity=50); }
+
+      .btnIcon.icoBold { background-position:-300px 0; }
+      .btnIcon.icoBold.selected { background-position:-300px -50px; }
+
+      .btnIcon.icoItalic { background-position:-350px 0; }
+      .btnIcon.icoItalic.selected { background-position:-350px -50px; }
+
+      .btnNormal em.icoCopy { width:9px; background-position:-250px -150px; }
+      .btnNormal em.icoList { width:10px; background-position:-300px -150px; }
+      .btnNormal em.icoRefresh { width:8px; height:10px; background-position:-350px -150px; }
+
+      .btnIcon.icoPause { position:relative; border:1px solid #cacaca; background-color:#f8f8f8; background-image:none; }
+      .btnNormal em.icoPause { width:8px; height:8px; }
+      .btnIcon.icoPause:before,
+      .btnNormal em.icoPause:before { content:""; position:absolute; top:0; left:0; margin:0 0 0; width:2px; height:8px; background:#6b6b6b; }
+      .btnIcon.icoPause:after,
+      .btnNormal em.icoPause:after { content:""; position:absolute; top:0; left:8px; width:2px; height:8px; background:#6b6b6b; transform:rotate(180deg); -webkit-transform:rotate(180deg); }
+      .btnNormal em.icoPause:before { left:1px; }
+      .btnNormal em.icoPause:after { top:0; left:5px; }
+
+      .btnNormal em.icoReverse { width:13px; height:9px; background-position:-450px -150px; }
+      .btnNormal em.icoResize { height:10px; background-position:-500px -150px; }
+      .btnNormal em.icoURL { width:12px; height:12px; vertical-align:-2px; background-position:-550px -150px; }
+
+      .btnIcon.icoSetting { background-position:-500px 0; }
+
+    /* GROUP2 > download */
+      .btnIcon.icoXls { background-position:0 -200px; }
+      .btnNormal em.icoXls { width:10px; height:10px; background-position:0 -250px; }
+
+      .btnIcon.icoDoc { background-position:-50px -200px; }
+      .btnNormal em.icoDoc { width:10px; height:10px; background-position:-50px -250px; }
+
+      .btnIcon.icoPpt { background-position:-100px -200px; }
+      .btnNormal em.icoPpt { width:10px; height:10px; background-position:-100px -250px; }
+
+      .btnIcon.icoPdf { margin:0; background-position:-150px -200px; }
+      .btnNormal em.icoPdf { height:10px; background-position:-150px -250px; }
+
+      .btnIcon.icoHwp { background-position:-200px -200px; }
+      .btnNormal em.icoHwp { width:10px; height:10px; background-position:-200px -250px; }
+
+      .btnIcon.icoText { background-position:-250px -200px; }
+      .btnNormal em.icoText { width:9px; background-position:-250px -250px; }
+
+      .btnIcon.icoZip { background-position:-300px -200px; }
+      .btnNormal em.icoZip { width:14px; height:12px; background-position:-300px -250px; }
+
+      .btnIcon.icoJpg { background-position:-350px -200px; }
+      .btnNormal em.icoJpg { width:14px; height:12px; background-position:-350px -250px; }
+
+      .btnIcon.icoPng { background-position:-400px -200px; }
+      .btnNormal em.icoPng { width:14px; height:12px; background-position:-400px -250px; }
+
+      .btnIcon.icoGif { background-position:-450px -200px; }
+      .btnNormal em.icoGif { width:14px; height:12px; background-position:-450px -250px; }
+
+    /* GROUP3 > arrow */
+      .btnNormal em.icoLower,
+      .btnNormal em.icoUpper,
+      .btnGeneral em.icoLower,
+      .btnGeneral em.icoUpper { width:8px; height:8px; margin:-5px 1px 0 5px; border:2px solid #6b6b6b; border-top-color:transparent; border-right-color:transparent; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); box-sizing:border-box; vertical-align:middle; border-radius:1px; }
+      .btnNormal em.icoUpper,
+      .btnGeneral em.icoUpper { margin-top:3px; transform:rotate(-225deg); -webkit-transform:rotate(-225deg); }
+
+      .btnNormal em.icoLayer { width:4px; height:4px; margin:-5px 0 0 6px; border-width:1px 1px 0 0; border-style:solid; border-color:#444b59; vertical-align:middle;
+        -webkit-transform:rotate(135deg); -moz-transform:rotate(135deg); -ms-transform:rotate(135deg); transform:rotate(135deg); }
+      .btnNormal.selected em.icoLayer { margin:0 0 0 6px; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg); -ms-transform:rotate(-45deg); }
+
+      .btnCtrl em.icoLayer { width:4px; height:4px; margin:-5px 2px 0 9px; border-top:2px solid #fff; border-right:2px solid #fff; vertical-align:middle;
+        -webkit-transform:rotate(135deg); -ms-transform:rotate(135deg); -moz-transform:rotate(135deg); transform:rotate(135deg);
+      }
+      .btnCtrl.selected em.icoLayer { margin-top:-2px; -webkit-transform:rotate(-45deg); -ms-transform:rotate(-45deg); -moz-transform:rotate(-45deg); transform:rotate(-45deg); }
+
+      .btnNormal em.icoLink { width:4px; height:4px; margin:-3px 0 0 3px; border-top:1px solid #444b59; border-right:1px solid #444b59; vertical-align:middle;
+        -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg); transform:rotate(45deg);
+      }
+
+      .btnCtrl em.icoLink { width:4px; height:4px; margin:-3px 0 0 3px; border-top:1px solid #fff; border-right:1px solid #fff; vertical-align:middle;
+        -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg); transform:rotate(45deg);
+      }
+
+      .btnLink em.icoLink { width:0; height:0; margin:-3px -2px 0 3px; border-width:4px; border-style:solid; border-color:#868e9b transparent transparent transparent; vertical-align:middle;
+        -webkit-transform:rotate(-90deg); -ms-transform:rotate(-90deg); -moz-transform:rotate(-90deg); transform:rotate(-90deg);
+      }
+      em.icoPrev { width:0; height:0; margin:-2px 3px 0 0; border-width:3px; border-style:solid; border-color:#515151 transparent transparent transparent; vertical-align:middle; transform:rotate(90deg); -webkit-transform:rotate(90deg); }
+
+    /* GROUP4 > icon */
+      .btnIcon.icoHistory { background-position:0 -500px; }
+      .btnIcon.icoCal { width:14px; height:14px; background-position:-50px -500px; }
+      img.icoCal { vertical-align:middle; }
+      .btnIcon.icoPrint { width:11px; height:11px; background-position:-100px -500px; }
+      .btnNormal em.icoPrint { width:11px; height:11px; vertical-align:-1px; background-position:-100px -500px; }
+      .btnIcon.icoDetail { width:14px; height:14px; background-position:-50px -800px; }
+
+      .btnIcon.icoPhone { width:12px; height:12px; background-position:0 -550px; }
+      .btnIcon.icoSK { width:30px; height:12px; background-position:-50px -550px; }
+      .btnIcon.icoKT { width:28px; height:12px; background-position:-100px -550px; }
+      .btnIcon.icoLG { width:46px; height:12px; background-position:-150px -550px; }
+      .btnIcon.icoTeleStar { width:68px; height:12px; background-position:-200px -550px; }
+
+    /* GROUP5 > selected */
+      .btnIcon.icoSms { width:10px; height:12px; background-position:0 -600px; }
+      .btnIcon.icoSms.selected { background-position:0 -650px; }
+      .btnIcon.icoMail { width:12px; height:10px; background-position:-50px -600px; }
+      .btnIcon.icoMail.selected { background-position:-50px -650px; }
+      .btnIcon.icoMemo { width:11px; height:12px; background-position:-100px -600px; }
+      .btnIcon.icoMemo.selected { background-position:-100px -650px; }
+      .btnIcon.icoUser { width:29px; height:16px; background-position:-150px -600px; }
+      .btnIcon.icoUser.selected { background-position:-150px -650px; }
+      .btnIcon.icoAdmin { width:29px; height:16px; background-position:-200px -600px; }
+      .btnIcon.icoAdmin.selected { background-position:-200px -650px; }
+      .btnIcon.icoCafe24 { width:39px; height:16px; background-position:-250px -600px; }
+      .btnIcon.icoCafe24.selected { background-position:-250px -650px; }
+
+      /* 묶음선택 / まとめ選択 */
+      .btnIcon.icoBunch { width:26px; height:28px; border:1px solid #727272; color:#363636; text-align:center; white-space:normal; background-image:none; background-color:#f3f3f3; }
+      .btnIcon.icoBunch.selected { border:1px solid #adbcc3; color:#7292a3; background-color:#e4edf2; }
+      .btnIcon.icoBunch span { visibility:visible; display:inline-block; width:24px; font-size:11px; line-height:13px; line-height:14px\0; font-family:"돋움", Dotum, sans-serif; }
+        html:lang(ja) .btnIcon.icoBunch { width:48px; }
+        html:lang(ja) .btnIcon.icoBunch span { width:46px; font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+        html:lang(vi) .btnIcon.icoBunch span { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
+        html:lang(en) .btnIcon.icoBunch { width:47px; }
+        html:lang(en) .btnIcon.icoBunch span { width:45px; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
+
+    /* GROUP6 > toggle */
+      .btnIcon.icoCurrentMall,
+      .btnIcon.icoBasicMall,
+      .btnIcon.icoViewDetail,
+      .btnIcon.icoViewSimple { position:relative; width:auto; height:auto; background-image:none; }
+      .btnIcon.icoCurrentMall span,
+      .btnIcon.icoBasicMall span,
+      .btnIcon.icoViewDetail span,
+      .btnIcon.icoViewSimple span { display:inline-block; height:22px; padding:0 6px; color:#a1a1a1; font-size:12px; font-family:"돋움", Dotum, sans-serif; visibility:visible; line-height:20px; line-height:22px\0; border:1px solid #cacaca; background-color:#fff; box-sizing:border-box; }
+      .btnIcon.icoCurrentMall + .btnIcon.icoBasicMall,
+      .btnIcon.icoViewDetail + .btnIcon.icoViewSimple { margin-left:-1px; }
+      .btnIcon.icoCurrentMall.selected span,
+      .btnIcon.icoBasicMall.selected span,
+      .btnIcon.icoViewDetail.selected span,
+      .btnIcon.icoViewSimple.selected span { color:#fff; border-color:transparent; background-color:#2d82d1; }
+
+    /* GROUP7 > etc */
+      .btnIcon.icoDelete { background-position:0 -800px; }
+      .btnCtrl em.icoXls2 { background-position:0 -850px; }
+
+/* btnMove 항목 이동 버튼 */
+    .btnMove { position:relative; overflow:hidden; width:20px; height:20px; margin:0; padding:0; line-height:20px; white-space:nowrap; text-indent:150%; box-sizing:border-box; background:url("//img.echosting.cafe24.com/ec/v2/ko_KR/sfix_icon_move2.png") 0 0 no-repeat; }
+    .btnMove span { display:block; height:100%; font-size:1px; }
+    .btnMove.icoLast,
+    .btnMove.icoNext,
+    .btnMove.icoPrev,
+    .btnMove.icoFirst,
+    .btnMove.icoPlus,
+    .btnMove.icoMinus,
+    .btnMove.icoLeft,
+    .btnMove.icoRight,
+    .btnMove.icoUnfold,
+    .btnMove.icoFold,
+    .btnMove.icoRemove,
+    .btnMove.icoAdd,
+    .btnMove.icoAddText,
+    .btnMove.icoAllText,
+    .btnMove.icoDelText { display:inline-block; position:relative; vertical-align:middle; }
+    .btnMove.icoFirst,
+    .btnMove.icoPlus,
+    .btnMove.icoMinus { background-position:0 0; }
+    .btnMove.icoPrev { background-position:-50px 0; }
+    .btnMove.icoNext { background-position:-100px 0; }
+    .btnMove.icoLast { background-position:-150px 0; }
+    .btnMove.icoLeft { width:30px; background-position:0 -50px; }
+    .btnMove.icoRight { width:30px; background-position:-50px -50px; }
+    .btnMove.icoAll,
+    .btnMove.icoBlank { width:30px; height:auto; padding:3px 0; padding:3px 0 1px\0; line-height:13px; text-indent:0; white-space:normal; border:1px solid #cacaca; background-color:#f8f8f8; background-image:none; }
+    .btnMove.icoUnfold { width:30px; height:auto; padding:4px 0 15px; line-height:13px; text-indent:0; white-space:normal; border:1px solid #cacaca; background-color:#f8f8f8; background-image:none; }
+    .btnMove.icoUnfold:after { content:""; display:inline-block; position:absolute; left:50%; bottom:6px; width:5px; height:5px; margin:0 0 0 -4px; border-left:2px solid #6b6b6b; border-bottom:2px solid #6b6b6b; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); }
+    .btnMove.icoUnfold span,
+    .btnMove.icoFold span,
+    .btnMove.icoAll span,
+    .btnMove.icoBlank span { font-size:11px; color:#1c1c1c; font-family:'돋움', dotum; letter-spacing:-1px; }
+    .btnMove.icoFold { width:30px; height:auto; padding:15px 0 4px; line-height:13px; text-indent:0; white-space:normal; border:1px solid #cacaca; background-color:#f8f8f8; background-image:none; }
+    .btnMove.icoFold:after { content:""; display:inline-block; position:absolute; left:50%; top:6px; width:5px; height:5px; margin:0 0 0 -4px; border-left:2px solid #6b6b6b; border-bottom:2px solid #6b6b6b; transform:rotate(135deg); -webkit-transform:rotate(135deg); }
+    .btnMove.icoAdd,
+    .btnMove.icoRemove,
+    .btnMove.icoAddText,
+    .btnMove.icoAllText,
+    .btnMove.icoDelText { background: url('//img.echosting.cafe24.com/suio/ko_KR/sfix_icon_move2.png') 0 0 no-repeat; }
+    .btnMove.icoAdd { width:32px; height:65px; background-position:0 -100px; }
+    .btnMove.icoRemove { width:32px; height:65px; background-position:-50px -100px; }
+    .btnMove.icoAddText { width:32px; height:80px; background-position:-100px -100px; }
+    .btnMove.icoAllText { width:32px; height:80px; background-position:-150px -100px; }
+    .btnMove.icoDelText { width:32px; height:80px; background-position:-200px -100px; }
+        html:lang(ja) .btnMove.icoUnfold,
+        html:lang(ja) .btnMove.icoFold { width:34px; }
+        html:lang(ja) .btnMove.icoUnfold span,
+        html:lang(ja) .btnMove.icoFold span,
+        html:lang(ja) .btnMove.icoAll span,
+        html:lang(ja) .btnMove.icoBlank span { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; letter-spacing:-0.5px; line-height:12px; }
+        html:lang(ja) .btnMove.icoAddText,
+        html:lang(ja) .btnMove.icoAllText,
+        html:lang(ja) .btnMove.icoDelText { background-image:url('//img.echosting.cafe24.com/suio/ja_JP/sfix_icon_move2.png'); }
+        html:lang(vi) .btnMove.icoUnfold span,
+        html:lang(vi) .btnMove.icoFold span,
+        html:lang(vi) .btnMove.icoAll span,
+        html:lang(vi) .btnMove.icoBlank span { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
+        html:lang(vi) .btnMove.icoAddText,
+        html:lang(vi) .btnMove.icoAllText,
+        html:lang(vi) .btnMove.icoDelText { background-image:url('//img.echosting.cafe24.com/suio/vi_VN/sfix_icon_move2.png'); }
+        html:lang(en) .btnMove.icoUnfold span,
+        html:lang(en) .btnMove.icoFold span,
+        html:lang(en) .btnMove.icoAll span,
+        html:lang(en) .btnMove.icoBlank span { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
+        html:lang(en) .btnMove.icoAddText,
+        html:lang(en) .btnMove.icoAllText,
+        html:lang(en) .btnMove.icoDelText { background-image:url('//img.echosting.cafe24.com/suio/en_US/sfix_icon_move2.png'); }
+        html:lang(en) .btnMove.icoAll,
+        html:lang(en) .btnMove.icoBlank { width:35px; height:35px; }
+        html:lang(en) .btnMove.icoAll span,
+        html:lang(en) .btnMove.icoBlank span { display:inline; }
+
+/* 텍스트형 아이콘 */
+.mini[class^="ico"], .icoDefault, .icoNotice, .icoMajor, .icoFavorite, .icoSpecial, .icoBad, .icoBlacklist, .icoShopDisplay,
+.icoEachRegister, .icoExcRegister, .icoRetractExchange, .icoRetractCancel, .icoRetractReturn, .icoExchange, .icoCancel, .icoReturn, .icoSoldout, .icoWithdraw, .icoSell,
+.icoPriority, .icoBundle, .icoSetProduct, .icoSetProduct2, .icoReference, .icoRefund, .icoOrdFirst, .icoDelay, .icoIP,
+.icoDefer, .icoExcProduct, .icoExcPayment, .icoExcBefore, .icoExcAfter, .icoExcPart, .icoRefusal,
+.icoMobile, .icoProduct, .icoGift, .ico1MoreEvent, .icoSecurity, .icoGrand,
+.icoB2BRequest, .icoB2BReject, .icoB2BStop, .icoPersonal, .icoCompany, .icoDivision, .icoRequired,
+.icoCheckoutExchange, .icoCheckoutCancel, .icoCheckoutReturn, .icoCheckoutDelivery, .icoCheckoutDelay,
+.icoStorePickup, .icoFixed, .icoNineteen, .icoStock, .icoCafe24, .icoCafe24Product, .icoCafe24Order, .icoDelivery, .icoDeliveryFail {
+    display:inline-block; overflow:hidden; height:16px; margin:-2px 0 0 0; font-size:0; line-height:0; vertical-align:middle;
+    background:url('//img.echosting.cafe24.com/suio/ko_KR/sfix_icon_text.png') 0 0 no-repeat;
+}
+
+  html:lang(ja) .mini[class^="ico"], html:lang(ja) .icoDefault, html:lang(ja) .icoNotice, html:lang(ja) .icoMajor, html:lang(ja) .icoFavorite, html:lang(ja) .icoSpecial, html:lang(ja) .icoBad, html:lang(ja) .icoBlacklist, html:lang(ja) .icoShopDisplay,
+  html:lang(ja) .icoEachRegister, html:lang(ja) .icoExcRegister, html:lang(ja) .icoRetractExchange, html:lang(ja) .icoRetractCancel, html:lang(ja) .icoRetractReturn, html:lang(ja) .icoExchange, html:lang(ja) .icoCancel, html:lang(ja) .icoReturn, html:lang(ja) .icoSoldout, html:lang(ja) .icoWithdraw, html:lang(ja) .icoSell,
+  html:lang(ja) .icoPriority, html:lang(ja) .icoBundle, html:lang(ja) .icoSetProduct, html:lang(ja) .icoSetProduct2, html:lang(ja) .icoReference, html:lang(ja) .icoRefund, html:lang(ja) .icoOrdFirst, html:lang(ja) .icoDelay, html:lang(ja) .icoIP,
+  html:lang(ja) .icoDefer, html:lang(ja) .icoExcProduct, html:lang(ja) .icoExcPayment, html:lang(ja) .icoExcBefore, html:lang(ja) .icoExcAfter, html:lang(ja) .icoExcPart, html:lang(ja) .icoRefusal,
+  html:lang(ja) .icoMobile, html:lang(ja) .icoProduct, html:lang(ja) .icoGift, html:lang(ja) .ico1MoreEvent, html:lang(ja) .icoSecurity, html:lang(ja) .icoGrand,
+  html:lang(ja) .icoB2BRequest, html:lang(ja) .icoB2BReject, html:lang(ja) .icoB2BStop, html:lang(ja) .icoPersonal, html:lang(ja) .icoCompany, html:lang(ja) .icoDivision, html:lang(ja) .icoRequired,
+  html:lang(ja) .icoCheckoutExchange, html:lang(ja) .icoCheckoutCancel, html:lang(ja) .icoCheckoutReturn, html:lang(ja) .icoCheckoutDelivery, html:lang(ja) .icoCheckoutDelay,
+  html:lang(ja) .icoStorePickup, html:lang(ja) .icoFixed, html:lang(ja) .icoNineteen, html:lang(ja) .icoStock, html:lang(ja) .icoCafe24, html:lang(ja) .icoCafe24Product, html:lang(ja) .icoCafe24Order, html:lang(ja) .icoDelivery, html:lang(ja) .icoDeliveryFail {
+      background-image:url('//img.echosting.cafe24.com/suio/ja_JP/sfix_icon_text.png');
+  }
+
+  html:lang(en) .mini[class^="ico"], html:lang(en) .icoDefault, html:lang(en) .icoNotice, html:lang(en) .icoMajor, html:lang(en) .icoFavorite, html:lang(en) .icoSpecial, html:lang(en) .icoBad, html:lang(en) .icoBlacklist, html:lang(en) .icoShopDisplay,
+  html:lang(en) .icoEachRegister, html:lang(en) .icoExcRegister, html:lang(en) .icoRetractExchange, html:lang(en) .icoRetractCancel, html:lang(en) .icoRetractReturn, html:lang(en) .icoExchange, html:lang(en) .icoCancel, html:lang(en) .icoReturn, html:lang(en) .icoSoldout, html:lang(en) .icoWithdraw, html:lang(en) .icoSell,
+  html:lang(en) .icoPriority, html:lang(en) .icoBundle, html:lang(en) .icoSetProduct, html:lang(en) .icoSetProduct2, html:lang(en) .icoReference, html:lang(en) .icoRefund, html:lang(en) .icoOrdFirst, html:lang(en) .icoDelay, html:lang(en) .icoIP,
+  html:lang(en) .icoDefer, html:lang(en) .icoExcProduct, html:lang(en) .icoExcPayment, html:lang(en) .icoExcBefore, html:lang(en) .icoExcAfter, html:lang(en) .icoExcPart, html:lang(en) .icoRefusal,
+  html:lang(en) .icoMobile, html:lang(en) .icoProduct, html:lang(en) .icoGift, html:lang(en) .ico1MoreEvent, html:lang(en) .icoSecurity, html:lang(en) .icoGrand,
+  html:lang(en) .icoB2BRequest, html:lang(en) .icoB2BReject, html:lang(en) .icoB2BStop, html:lang(en) .icoPersonal, html:lang(en) .icoCompany, html:lang(en) .icoDivision, html:lang(en) .icoRequired,
+  html:lang(en) .icoCheckoutExchange, html:lang(en) .icoCheckoutCancel, html:lang(en) .icoCheckoutReturn, html:lang(en) .icoCheckoutDelivery, html:lang(en) .icoCheckoutDelay,
+  html:lang(en) .icoStorePickup, html:lang(en) .icoFixed, html:lang(en) .icoNineteen, html:lang(en) .icoStock, html:lang(en) .icoCafe24, html:lang(en) .icoCafe24Product, html:lang(en) .icoCafe24Order {
+      background-image:url('//img.echosting.cafe24.com/suio/en_US/sfix_icon_text.png');
+  }
+  html:lang(vi) .mini[class^="ico"], html:lang(vi) .icoDefault, html:lang(vi) .icoNotice, html:lang(vi) .icoMajor, html:lang(vi) .icoFavorite, html:lang(vi) .icoSpecial, html:lang(vi) .icoBad, html:lang(vi) .icoBlacklist, html:lang(vi) .icoShopDisplay,
+  html:lang(vi) .icoEachRegister, html:lang(vi) .icoExcRegister, html:lang(vi) .icoRetractExchange, html:lang(vi) .icoRetractCancel, html:lang(vi) .icoRetractReturn, html:lang(vi) .icoExchange, html:lang(vi) .icoCancel, html:lang(vi) .icoReturn, html:lang(vi) .icoSoldout, html:lang(vi) .icoWithdraw, html:lang(vi) .icoSell,
+  html:lang(vi) .icoPriority, html:lang(vi) .icoBundle, html:lang(vi) .icoSetProduct, html:lang(vi) .icoSetProduct2, html:lang(vi) .icoReference, html:lang(vi) .icoRefund, html:lang(vi) .icoOrdFirst, html:lang(vi) .icoDelay, html:lang(vi) .icoIP,
+  html:lang(vi) .icoDefer, html:lang(vi) .icoExcProduct, html:lang(vi) .icoExcPayment, html:lang(vi) .icoExcBefore, html:lang(vi) .icoExcAfter, html:lang(vi) .icoExcPart, html:lang(vi) .icoRefusal,
+  html:lang(vi) .icoMobile, html:lang(vi) .icoProduct, html:lang(vi) .icoGift, html:lang(vi) .ico1MoreEvent, html:lang(vi) .icoSecurity, html:lang(vi) .icoGrand,
+  html:lang(vi) .icoB2BRequest, html:lang(vi) .icoB2BReject, html:lang(vi) .icoB2BStop, html:lang(vi) .icoPersonal, html:lang(vi) .icoCompany, html:lang(vi) .icoDivision, html:lang(vi) .icoRequired,
+  html:lang(vi) .icoCheckoutExchange, html:lang(vi) .icoCheckoutCancel, html:lang(vi) .icoCheckoutReturn, html:lang(vi) .icoCheckoutDelivery, html:lang(vi) .icoCheckoutDelay,
+  html:lang(vi) .icoStorePickup, html:lang(vi) .icoFixed, html:lang(vi) .icoNineteen, html:lang(vi) .icoStock, html:lang(vi) .icoCafe24, html:lang(vi) .icoCafe24Product, html:lang(vi) .icoCafe24Order {
+      background-image:url('//img.echosting.cafe24.com/suio/vi_VN/sfix_icon_text.png');
+  }
+  html:lang(zh) .mini[class^="ico"], html:lang(zh) .icoDefault, html:lang(zh) .icoNotice, html:lang(zh) .icoMajor, html:lang(zh) .icoFavorite, html:lang(zh) .icoSpecial, html:lang(zh) .icoBad, html:lang(zh) .icoBlacklist, html:lang(zh) .icoShopDisplay,
+  html:lang(zh) .icoEachRegister, html:lang(zh) .icoExcRegister, html:lang(zh) .icoRetractExchange, html:lang(zh) .icoRetractCancel, html:lang(zh) .icoRetractReturn, html:lang(zh) .icoExchange, html:lang(zh) .icoCancel, html:lang(zh) .icoReturn, html:lang(zh) .icoSoldout, html:lang(zh) .icoWithdraw, html:lang(zh) .icoSell,
+  html:lang(zh) .icoPriority, html:lang(zh) .icoBundle, html:lang(zh) .icoSetProduct, html:lang(zh) .icoSetProduct2, html:lang(zh) .icoReference, html:lang(zh) .icoRefund, html:lang(zh) .icoOrdFirst, html:lang(zh) .icoDelay, html:lang(zh) .icoIP,
+  html:lang(zh) .icoDefer, html:lang(zh) .icoExcProduct, html:lang(zh) .icoExcPayment, html:lang(zh) .icoExcBefore, html:lang(zh) .icoExcAfter, html:lang(zh) .icoExcPart, html:lang(zh) .icoRefusal,
+  html:lang(zh) .icoMobile, html:lang(zh) .icoProduct, html:lang(zh) .icoGift, html:lang(zh) .ico1MoreEvent, html:lang(zh) .icoSecurity, html:lang(zh) .icoGrand,
+  html:lang(zh) .icoB2BRequest, html:lang(zh) .icoB2BReject, html:lang(zh) .icoB2BStop, html:lang(zh) .icoPersonal, html:lang(zh) .icoCompany, html:lang(zh) .icoDivision, html:lang(zh) .icoRequired,
+  html:lang(zh) .icoCheckoutExchange, html:lang(zh) .icoCheckoutCancel, html:lang(zh) .icoCheckoutReturn, html:lang(zh) .icoCheckoutDelivery, html:lang(zh) .icoCheckoutDelay,
+  html:lang(zh) .icoStorePickup, html:lang(zh) .icoFixed, html:lang(zh) .icoNineteen, html:lang(zh) .icoStock, html:lang(zh) .icoCafe24, html:lang(zh) .icoCafe24Product, html:lang(zh) .icoCafe24Order, html:lang(zh) .icoDelivery, html:lang(zh) .icoDeliveryFail {
+      background-image:url('//img.echosting.cafe24.com/suio/zh_TW/sfix_icon_text.png');
+  }
+.mini[class^="ico"] { width:25px; }
+
+.icoDefault { width:25px; background-position:0 0; }
+  html:lang(en) .icoDefault { width:39px; }
+  html:lang(vi) .icoDefault { width:49px; }
+  html:lang(zh) .icoDefault { width:29px; }
+.icoNotice { width:25px; background-position:-50px 0; }
+  html:lang(en) .icoNotice { width:35px; }
+  html:lang(vi) .icoNotice { width:56px; }
+.icoMajor { width:25px; background-position:-100px 0; }
+  html:lang(en) .icoMajor { width:49px; }
+  html:lang(vi) .icoMajor { width:59px; background-position:-150px 0; }
+.icoFavorite { width:25px; background-position:-150px 0; }
+  html:lang(ja) .icoFavorite { width:47px; }
+  html:lang(vi) .icoFavorite { background-position:-250px 0; }
+.icoSpecial { width:24px; background-position:-200px 0; }
+  html:lang(en) .icoSpecial { width:44px; }
+  html:lang(vi) .icoSpecial { width:45px; background-position:-300px 0; }
+.icoBad { width:25px; background-position:-250px 0; }
+  html:lang(ja) .icoBad { width:37px; }
+  html:lang(en) .icoBad { width:55px; background-position:-250px 0; }
+  html:lang(vi) .icoBad { width:24px; background-position:-350px 0; }
+  html:lang(zh) .icoBad { width:44px; }
+.icoBlacklist { width:55px; background-position:-300px 0; }
+  html:lang(en) .icoBlacklist { background-position:-350px 0; }
+  html:lang(vi) .icoBlacklist { background-position:-400px 0; }
+.icoBlacklist.mini { background-position:-300px -20px; }
+  html:lang(en) .icoBlacklist.mini { background-position:-350px -20px; }
+  html:lang(vi) .icoBlacklist.mini { background-position:-400px -20px; }
+.icoShopDisplay { width:62px; background-position:-400px 0; }
+  html:lang(en) .icoShopDisplay { background-position:-450px 0; }
+  html:lang(vi) .icoShopDisplay { background-position:-500px 0; }
+
+.icoEachRegister { width:45px; background-position:0 -50px; }
+.icoEachRegister.mini { background-position:0 -70px; }
+.icoExcRegister { width:45px; background-position:-50px -50px; }
+  html:lang(ja) .icoExcRegister { width:66px; }
+.icoExcRegister.mini { background-position:-50px -70px; }
+  html:lang(ja) .icoExcRegister.mini { width:46px; }
+.icoRetractExchange { width:45px; background-position:0 -700px; }
+  html:lang(ja) .icoRetractExchange { width:53px; }
+  html:lang(en) .icoRetractExchange { width:92px; }
+  html:lang(vi) .icoRetractExchange { width:38px; }
+.icoRetractCancel { width:45px; background-position:-100px -700px; }
+  html:lang(ja) .icoRetractCancel { width:84px; }
+  html:lang(en) .icoRetractCancel { width:102px; }
+  html:lang(vi) .icoRetractCancel { width:42px; }
+.icoRetractReturn { width:45px; background-position:-200px -700px; }
+  html:lang(ja) .icoRetractReturn { width:54px; }
+  html:lang(en) .icoRetractReturn { width:76px; background-position:-250px -700px; }
+  html:lang(vi) .icoRetractReturn { width:37px; }
+.icoExchange { width:25px; background-position:-350px -50px; }
+.icoCancel { width:25px; background-position:-400px -50px; }
+  html:lang(ja) .icoCancel { width:56px; }
+.icoReturn { width:25px; background-position:-500px -50px; }
+.icoSoldout { width:25px; background-position:-550px -50px; }
+  html:lang(ja) .icoSoldout { width:46px; }
+  html:lang(en) .icoSoldout { width:63px; }
+  html:lang(vi) .icoSoldout { width:48px; }
+.icoWithdraw { width:25px; background-position:-600px -50px; }
+  html:lang(en) .icoWithdraw { width:44px; background-position:-650px -50px; }
+  html:lang(vi) .icoWithdraw { width:34px; }
+.icoSell { width:34px; background-position:-650px -50px; }
+  html:lang(en) .icoSell { width:43px; background-position:-700px -50px; }
+
+.icoPriority { width:45px; background-position:-150px -650px; }
+.icoBundle { width:25px; background-position:0 -100px; }
+  html:lang(ja) .icoBundle { width:35px; }
+  html:lang(en) .icoBundle { width:52px; }
+  html:lang(vi) .icoBundle { width:36px; }
+.icoSetProduct { width:24px; background-position:-50px -100px; }
+  html:lang(ja) .icoSetProduct { width:35px; }
+  html:lang(en) .icoSetProduct { width:38px; background-position:-100px -100px; }
+  html:lang(vi) .icoSetProduct { width:21px; }
+.icoSetProduct2 { width:44px; background-position:-100px -100px; }
+  html:lang(ja) .icoSetProduct2 { width:61px; }
+  html:lang(en) .icoSetProduct2 { width:90px; background-position:-150px -100px; }
+  html:lang(vi) .icoSetProduct2 { width:47px; }
+.icoReference { width:25px; height:14px; background-position:-200px -100px; }
+  html:lang(ja) .icoReference { height:16px; }
+  html:lang(en) .icoReference { width:27px; background-position:-250px -100px; }
+  html:lang(vi) .icoReference { width:58px; }
+.icoRefund { width:25px; background-position:-250px -100px; }
+  html:lang(en) .icoRefund { width:52px; background-position:-300px -100px; }
+  html:lang(vi) .icoRefund { width:50px; background-position:-300px -100px; }
+.icoRefund.disabled { background-position:-300px -100px; }
+  html:lang(en) .icoRefund.disabled { background-position:-400px -100px; }
+  html:lang(vi) .icoRefund.disabled { background-position:-350px -100px; }
+.icoOrdFirst { width:35px; background-position:-350px -100px; }
+  html:lang(en) .icoOrdFirst { width:55px; background-position:-500px -100px; }
+  html:lang(vi) .icoOrdFirst { width:67px; background-position:-400px -100px; }
+  html:lang(zh) .icoOrdFirst { width:53px; background-position:-340px -100px; }
+.icoDelay { width:44px; background-position:-400px -100px; }
+  html:lang(ja) .icoDelay { width:45px; }
+  html:lang(en) .icoDelay { width:86px; background-position:-600px -100px; }
+  html:lang(vi) .icoDelay { width:59px; background-position:-500px -100px; }
+.icoIP { width:29px; height:15px; background-position:-450px -100px; }
+  html:lang(en) .icoIP { background-position:-700px -100px; }
+  html:lang(vi) .icoIP { background-position:-600px -100px; }
+
+.icoDefer { width:45px; background-position:0 -150px; }
+  html:lang(en) .icoDefer { width:42px; }
+  html:lang(vi) .icoDefer { width:60px; }
+.icoExcProduct { width:45px; background-position:-50px -150px; }
+  html:lang(en) .icoExcProduct { width:107px; }
+  html:lang(vi) .icoExcProduct { width:35px; background-position:-100px -150px; }
+.icoExcPayment { width:54px; background-position:-100px -150px; }
+  html:lang(ja) .icoExcPayment { width:66px; }
+  html:lang(en) .icoExcPayment { width:138px; background-position:-200px -150px; }
+  html:lang(vi) .icoExcPayment { width:63px; background-position:-150px -150px; }
+.icoExcBefore { width:54px; background-position:-200px -150px; }
+  html:lang(ja) .icoExcBefore { width:66px; }
+  html:lang(en) .icoExcBefore { width:137px; background-position:-350px -150px; }
+  html:lang(vi) .icoExcBefore { width:69px; background-position:-250px -150px; }
+.icoExcAfter { width:54px; background-position:-300px -150px; }
+  html:lang(ja) .icoExcAfter { width:66px; }
+  html:lang(en) .icoExcAfter { width:131px; background-position:-500px -150px; }
+  html:lang(vi) .icoExcAfter { width:60px; background-position:-350px -150px; }
+.icoExcPart { width:45px; background-position:-400px -150px;}
+  html:lang(en) .icoExcPart { width:99px; background-position:-650px -150px; }
+  html:lang(vi) .icoExcPart { width:68px; background-position:-450px -150px; }
+.icoRefusal { width:45px; background-position:-450px -150px; }
+  html:lang(en) .icoRefusal { background-position:-750px -150px; }
+  html:lang(vi) .icoRefusal { background-position:-550px -150px; }
+
+.icoMobile { width:16px; background-position:0 -200px; }
+.icoProduct { width:29px; height:15px; background-position:-50px -200px; }
+  html:lang(vi) .icoProduct { width:57px; }
+  html:lang(en) .icoProduct { width:46px; }
+.icoGift { width:35px; background-position:-100px -200px; }
+  html:lang(ja) .icoGift { width:56px; }
+  html:lang(vi) .icoGift { width:49px; background-position:-150px -200px; }
+.ico1MoreEvent { width:51px; background-position:-200px -200px; }
+  html:lang(ja) .ico1MoreEvent { width:85px; }
+  html:lang(en) .ico1MoreEvent { width:87px; }
+  html:lang(vi) .ico1MoreEvent { width:54px; background-position:-250px -200px; }
+.icoSecurity { width:25px; }
+  html:lang(zh) .icoSecurity { width:28px; }
+.icoSecurity.level1 { background-position:-300px -200px; }
+  html:lang(en) .icoSecurity.level1 { width:37px; }
+  html:lang(vi) .icoSecurity.level1 { width:24px; background-position:-350px -200px; }
+.icoSecurity.level2 { background-position:-350px -200px; }
+  html:lang(en) .icoSecurity.level2 { width:41px; }
+  html:lang(vi) .icoSecurity.level2 { width:43px; background-position:-400px -200px; }
+.icoSecurity.level3 { background-position:-400px -200px; }
+  html:lang(en) .icoSecurity.level3 { width:32px; }
+  html:lang(vi) .icoSecurity.level3 { width:29px; background-position:-450px -200px; }
+.icoGrand { width:45px; background-position:-450px -200px; }
+  html:lang(ja) .icoGrand { width:55px; }
+  html:lang(en) .icoGrand { width:31px; }
+  html:lang(vi) .icoGrand { width:59px; background-position:-500px -200px; }
+
+.icoB2BRequest { width:76px; background-position:0 -250px; }
+.icoB2BReject { width:96px; background-position:-100px -250px; }
+.icoB2BStop { width:84px; background-position:-200px -250px; }
+.icoPersonal { width:24px; margin-top:0; background-position:-300px -250px; }
+  html:lang(vi) .icoPersonal { width:45px; }
+.icoCompany { width:24px; margin-top:0; background-position:-350px -250px; }
+  html:lang(en) .icoCompany { width:31px; }
+  html:lang(vi) .icoCompany { width:41px; }
+.icoDivision { width:24px; margin-top:0; background-position:-400px -250px; }
+  html:lang(en) .icoDivision { width:29px; }
+  html:lang(vi) .icoDivision { width:45px; }
+.icoRequired { width:21px; height:14px; background-position:-450px -250px; }
+  html:lang(ja) .icoRequired { width:25px; }
+  html:lang(en) .icoRequired { width:46px; }
+  html:lang(vi) .icoRequired { width:45px; }
+
+.icoCheckoutExchange { width:92px; background-position:0 -300px; }
+  html:lang(ja) .icoCheckoutExchange { width:101px; }
+.icoCheckoutCancel { width:91px; background-position:-150px -300px; }
+  html:lang(ja) .icoCheckoutCancel { width:131px; }
+.icoCheckoutReturn { width:92px; background-position:-300px -300px; }
+  html:lang(ja) .icoCheckoutReturn { width:101px; }
+.icoCheckoutDelivery { width:112px; height:16px; background-position:-450px -300px; }
+  html:lang(ja) .icoCheckoutDelivery { width:120px; }
+.icoCheckoutDelay { width:97px; height:16px; background-position:-600px -300px; }
+  html:lang(ja) .icoCheckoutDelay { width:92px; }
+
+.icoStorePickup { width:16px; background-position:0 -350px; }
+.icoFixed { width:24px; background-position:-50px -350px; }
+  html:lang(en) .icoFixed { width:38px; }
+  html:lang(vi) .icoFixed { width:41px; }
+.icoNineteen { width:16px; background-position:-100px -350px; }
+  html:lang(ja) .icoNineteen { width:50px; }
+.icoStock { width:54px; background-position:-150px -350px; }
+.icoCafe24 { width:37px; background-position:-250px -350px; }
+.icoCafe24Product { width:57px; background-position:-300px -600px; }
+  html:lang(en) .icoCafe24Product,
+  html:lang(vi) .icoCafe24Product { background-position:-400px -600px; }
+.icoCafe24Product.mini { width:37px; background-position:-300px -620px; }
+  html:lang(en) .icoCafe24Product.mini,
+  html:lang(vi) .icoCafe24Product.mini { background-position:-400px -620px; }
+.icoCafe24Order { width:57px; background-position:-400px -600px; }
+  html:lang(en) .icoCafe24Order,
+  html:lang(vi) .icoCafe24Order { background-position:-500px -600px; }
+.icoCafe24Order.mini { width:37px; background-position:-400px -620px; }
+  html:lang(en) .icoCafe24Order.mini,
+  html:lang(vi) .icoCafe24Order.mini { background-position:-500px -620px; }
+
+/* 신규 텍스트형 아이콘 */
+.txtSFIX,
+.txtSFIX.icoNew,
+.txtSFIX.icoLink {
+    display:inline-block; overflow:hidden; height:16px; margin:-2px 0 0 0; font-size:0; line-height:0; vertical-align:middle;
+    background:url('//img.echosting.cafe24.com/suio/ko_KR/sfix_icon_text.png') 0 0 no-repeat;
+}
+  html:lang(ja) .txtSFIX,
+  html:lang(ja) .txtSFIX.icoNew,
+  html:lang(ja) .txtSFIX.icoLink { background-image:url('//img.echosting.cafe24.com/suio/ja_JP/sfix_icon_text.png'); }
+  html:lang(en) .txtSFIX,
+  html:lang(en) .txtSFIX.icoNew,
+  html:lang(en) .txtSFIX.icoLink { background-image:url('//img.echosting.cafe24.com/suio/en_US/sfix_icon_text.png'); }
+  html:lang(vi) .txtSFIX,
+  html:lang(vi) .txtSFIX.icoNew,
+  html:lang(vi) .txtSFIX.icoLink { background-image:url('//img.echosting.cafe24.com/suio/vi_VN/sfix_icon_text.png'); }
+
+.icoRental { width:26px; background-position:-500px -100px; }
+  html:lang(ja) .icoRental { width:37px; background-position:-500px -100px; }
+  html:lang(en) .icoRental { width:37px; background-position:-750px -100px; }
+  html:lang(vi) .icoRental { width:77px; background-position:-650px -100px; }
+
+.icoNecessary { width:27px; background-position:-300px -350px; }
+.icoBest { width:31px; background-position:-350px -350px; }
+  html:lang(en) .icoBest { width:32px; }
+  html:lang(vi) .icoBest { width:32px; }
+.txtSFIX.icoNew { width:30px; background-position:-400px -350px; }
+.icoReserve { width:46px; background-position:-450px -350px; }
+  html:lang(ja) .icoReserve { width:47px; }
+  html:lang(en) .icoReserve,
+  html:lang(vi) .icoReserve { width:51px; }
+.icoReserve.mini { width:25px; background-position:-450px -370px; }
+  html:lang(en) .icoReserve.mini,
+  html:lang(vi) .icoReserve.mini { width:25px; }
+
+.icoSetSplit { width:62px; background-position:0 -400px; }
+  html:lang(en) .icoSetSplit { width:39px; }
+  html:lang(vi) .icoSetSplit { width:23px; }
+.icoSetAll { width:62px; background-position:-100px -400px; }
+  html:lang(ja) .icoSetSplit,
+  html:lang(ja) .icoSetAll { width:34px; }
+  html:lang(en) .icoSetAll { width:40px; background-position:-50px -400px; }
+  html:lang(vi) .icoSetAll { width:23px; background-position:-50px -400px; }
+.icoReady { width:27px; background-position:-200px -400px; }
+  html:lang(en) .icoReady,
+  html:lang(vi) .icoReady { background-position:-100px -400px; }
+.icoPossible { width:27px; background-position:-250px -400px; }
+  html:lang(en) .icoPossible,
+  html:lang(vi) .icoPossible { background-position:-150px -400px; }
+.icoImpossible { width:27px; background-position:-300px -400px; }
+  html:lang(en) .icoImpossible,
+  html:lang(vi) .icoImpossible { background-position:-200px -400px; }
+.icoComplete { width:27px; background-position:-350px -400px; }
+  html:lang(en) .icoComplete,
+  html:lang(vi) .icoComplete { background-position:-250px -400px; }
+.icoSendFail { width:45px; background-position:-400px -400px; }
+  html:lang(vi) .icoSendFail { width:77px; background-position:-300px -400px; }
+  html:lang(en) .icoSendFail { width:33px; background-position:-300px -400px; }
+.icoOrder { width:27px; background-position:-450px -400px; }
+  html:lang(en) .icoOrder { background-position:-350px -400px; }
+  html:lang(vi) .icoOrder { background-position:-400px -400px; }
+.icoBundleBan { width:46px; background-position:-500px -400px; }
+  html:lang(en) .icoBundleBan { background-position:-400px -400px; }
+  html:lang(vi) .icoBundleBan { background-position:-450px -400px; }
+.icoBundleBan.mini { width:25px; background-position:-500px -420px; }
+  html:lang(en) .icoBundleBan.mini { background-position:-400px -420px; }
+  html:lang(vi) .icoBundleBan.mini { background-position:-450px -420px; }
+
+.icoSalesFail { width:61px; background-position:0 -450px; }
+  html:lang(en) .icoSalesFail { width:101px; }
+  html:lang(vi) .icoSalesFail { width:124px; }
+.icoAddressChange { width:43px; background-position:-100px -450px; }
+  html:lang(en) .icoAddressChange,
+  html:lang(vi) .icoAddressChange { background-position:-150px -450px; }
+.icoAddressChange.mini { width:25px; background-position:-100px -470px; }
+  html:lang(en) .icoAddressChange.mini,
+  html:lang(vi) .icoAddressChange.mini { background-position:-150px -470px; }
+.icoRemindMe { width:59px; background-position:-150px -450px; }
+  html:lang(ja) .icoRemindMe { width:69px; }
+  html:lang(en) .icoRemindMe,
+  html:lang(vi) .icoRemindMe { background-position:-200px -450px; }
+.icoRemindMeBenefit { width:59px; background-position:-250px -450px; }
+  html:lang(ja) .icoRemindMeBenefit { width:69px; }
+  html:lang(en) .icoRemindMeBenefit,
+  html:lang(vi) .icoRemindMeBenefit { background-position:-300px -450px; }
+.icoStoreRegister { width:45px; background-position:-350px -450px; }
+  html:lang(en) .icoStoreRegister,
+  html:lang(vi) .icoStoreRegister { background-position:-400px -450px; }
+.icoSeparatePrint { width:44px; background-position:-400px -450px; }
+  html:lang(en) .icoSeparatePrint,
+  html:lang(vi) .icoSeparatePrint { background-position:-450px -450px; }
+.icoSeparatePrint.mini { width:25px; background-position:-400px -470px; }
+  html:lang(en) .icoSeparatePrint.mini,
+  html:lang(vi) .icoSeparatePrint.mini { background-position:-450px -470px; }
+
+.icoMarketFail { width:64px; background-position:0 -500px; }
+  html:lang(en) .icoMarketFail { width:79px; }
+  html:lang(ja) .icoMarketFail { width:92px; }
+  html:lang(vi) .icoMarketFail { width:76px; }
+.icoMarketProduct { width:46px; background-position:-100px -500px; }
+  html:lang(en) .icoMarketProduct { width:109px; }
+  html:lang(ja) .icoMarketProduct { width:71px; }
+  html:lang(vi) .icoMarketProduct { width:74px; }
+.icoMarketCancelFail { width:69px; background-position:-550px -500px; }
+  html:lang(en) .icoMarketCancelFail { width:167px; background-position:-600px -500px; }
+  html:lang(ja) .icoMarketCancelFail { width:125px; }
+  html:lang(vi) .icoMarketCancelFail { width:73px; }
+.icoInvoiceFail { width:66px; background-position:-200px -500px; }
+  html:lang(en) .icoInvoiceFail { background-position:-250px -500px; }
+.icoNumFail { width:66px; background-position:-300px -500px; }
+  html:lang(en) .icoNumFail { background-position:-350px -500px; }
+.icoRegisterFail { width:66px; background-position:-400px -500px; }
+  html:lang(en) .icoRegisterFail { background-position:-450px -500px; }
+.icoLifetime { width:25px; background-position:-500px -500px; }
+  html:lang(en) .icoLifetime { background-position:-550px -500px; }
+
+.icoMembership { width:25px; background-position:0 -550px; }
+  html:lang(ja) .icoMembership { width:100px; }
+.icoServiceInUse { width:68px; background-position:-100px -550px; }
+  html:lang(ja) .icoServiceInUse { width:77px; }
+.icoServiceNotUse { width:82px; background-position:-200px -550px; }
+.icoStateRegister { width:25px; background-position:-300px -550px; }
+.icoStateReceipt { width:25px; background-position:-350px -550px; }
+.icoStateInvoice { width:25px; background-position:-400px -550px; }
+  html:lang(ja) .icoStateInvoice { width:38px; }
+.icoStateOut { width:25px; background-position:-450px -550px; }
+.icoHolding { width:25px; background-position:-500px -550px; }
+.icoHandling { width:25px; background-position:-550px -550px; }
+
+.txtSFIX.icoLink { width:25px; background-position:0 -600px; }
+.icoUnlink { width:37px; background-position:-50px -600px; }
+.icoManageLog { width:46px; background-position:-100px -600px; }
+  html:lang(en) .icoManageLog { width:63px; }
+  html:lang(vi) .icoManageLog { width:51px; }
+.icoNormal { width:25px; background-position:-150px -600px; }
+  html:lang(en) .icoNormal { width:38px; background-position:-200px -600px; }
+  html:lang(vi) .icoNormal { width:20px; background-position:-200px -600px; }
+.icoDeliveryPart { width:46px; background-position:-200px -600px; }
+  html:lang(en) .icoDeliveryPart { width:80px; background-position:-250px -600px; }
+  html:lang(vi) .icoDeliveryPart { width:69px; background-position:-250px -600px; }
+.icoDeliveryPart.mini { width:25px; background-position:-200px -620px; }
+  html:lang(en) .icoDeliveryPart.mini,
+  html:lang(vi) .icoDeliveryPart.mini { width:25px; background-position:-250px -620px; }
+.icoExist { width:26px; background-position:-250px -600px; }
+ html:lang(en) .icoExist,
+ html:lang(vi) .icoExist { background-position:-350px -600px; }
+.icoInfomation { width:26px; background-position:-500px -600px; }
+  html:lang(en) .icoInfomation,
+  html:lang(vi) .icoInfomation { background-position:-600px -600px; }
+
+.icoAssign { width:27px; background-position:0 -650px; }
+.icoAssignNot { width:37px; background-position:-50px -650px; }
+  html:lang(ja) .icoAssignNot { width:56px; }
+.icoAssignFirst { width:45px; background-position:-150px -650px; }
+.icoAssignFirst.mini { width:26px; background-position:-150px -670px; }
+.icoAssignAuto { width:47px; background-position:-200px -650px; }
+.icoAssignAuto.mini { width:26px; background-position:-200px -670px; }
+.icoAssignManual { width:47px; background-position:-300px -650px; }
+.icoAssignManual.mini { width:26px; background-position:-300px -670px; }
+.icoUsePossible { width:48px; background-position:-400px -650px; }
+.icoUseImpossible { width:48px; background-position:-450px -650px; }
+.icoRegularDelivery { width:46px; background-position:-300px -700px; }
+  html:lang(ja) .icoRegularDelivery { width:55px; }
+  html:lang(en) .icoRegularDelivery { background-position:-350px -700px; }
+.icoShopDisplayWord { width:85px; background-position:-400px -700px; }
+  html:lang(en) .icoShopDisplayWord { background-position:-450px -700px; }
+.icoWord { width:25px; background-position:-400px -720px; }
+  html:lang(en) .icoWord { background-position:-450px -720px; }
+.icoShopDisplayDate { width:85px; background-position:-500px -700px; }
+  html:lang(en) .icoShopDisplayDate { background-position:-550px -700px; }
+.icoDate { width:25px; background-position:-500px -720px; }
+  html:lang(en) .icoDate { background-position:-550px -720px; }
+
+.icoMultiDelivery { width:58px; background-position:-200px -750px; }
+  html:lang(ja) .icoMultiDelivery { width:63px; }
+  html:lang(en) .icoMultiDelivery { width:101px; }
+  html:lang(vi) .icoMultiDelivery { width:75px; }
+
+.icoTranslate { width:47px; background-position:-300px -750px; }
+  html:lang(en) .icoTranslate { width:90px; background-position:-350px -750px; }
+  html:lang(ja) .icoTranslate { width:49px; }
+  html:lang(vi) .icoTranslate { width:64px; }
+
+/* 일본어에서만 적용 */
+.icoDelivery { width:57px; background-position:0 -750px; }
+.icoDeliveryFail { width:69px; background-position:-100px -750px; }
+
+.icoKakaoExchange { width:123px; background-position:0 -800px; }
+.icoKakaoCancel { width:124px; background-position:-130px -800px; }
+.icoKakaoReturn { width:124px; background-position:-263px -800px; }
+.icoKakaoDelivery { width:145px; background-position:-395px -800px; }
+.icoKakaoDelay { width:122px; background-position:-550px -800px; }
+.icoKakaoRetractExchange { width:47px; background-position:0 -850px; }
+.icoKakaoRetractReturn { width:47px; background-position:-65px -850px; }
+.icoKakaoRetractCancel { width:47px; background-position:-132px -850px; }
+
+/* 이미지형 아이콘 */
+.icoPrint, .icoNew, .icoFile, .icoUp, .icoDown, .icoShop,
+.icoDot, .icoDepth, .icoFix, .icoChecked, .icoLock {
+    display:inline-block; overflow:hidden; margin:-3px 0 0 0; font-size:0; line-height:0; vertical-align:middle;
+    background:url('//img.echosting.cafe24.com/ec/v2/sfix_icon_image.png') 0 0 no-repeat;
+}
+
+.icoPrint { width:13px; height:12px; background-position:0 0; }
+.icoNew { width:11px; height:11px ; background-position:-50px 0; }
+.icoFile { width:10px; height:12px; background-position:-100px 0; }
+.icoUp { width:10px; height:6px; background-position:-150px 0; }
+.icoDown { width:10px; height:6px; background-position:-200px 0; }
+.icoShop { width:17px; height:15px; background-position:-250px 0; }
+    .headingArea .icoShop { margin:1px 0 0 -1px; }
+    :root .headingArea .icoShop { margin-top:0; }
+    .mBoard .gIcoShop { position:relative; padding:0 30px 0 0; }
+    .mBoard .gIcoShop .icoShop { position:absolute; right:2px; top:8px; background-position:-250px 0; }
+
+.icoDot { width:3px; height:3px; margin-right:3px; background-position:0 -50px; }
+    .mFixNav .info .gRight .summary dt .icoDot { margin-right: 0;}
+.icoDepth { width:7px; height:7px; background-position:-50px -50px; }
+.icoFix { width:20px; height:17px; background-position:-100px -50px; }
+.icoFix.undo { background-position:-150px -50px; }
+    .mBoard .icoFix, .mBoard .icoFix.undo { margin-top:0; }
+.icoChecked { width:12px; height:14px; background-position:-200px -50px; }
+.icoLock { width:11px; height:14px; background-position:-250px -50px; }
+
+/* 신규 이미지형 아이콘 */
+.imgSFIX, .imgSFIX.icoMobile {
+    display:inline-block; overflow:hidden; margin:-2px 0 0 0; font-size:0; line-height:0; vertical-align:middle;
+    background:url('//img.echosting.cafe24.com/suio/sfix_icon_image.png') 0 0 no-repeat;
+}
+.imgSFIX.icoMobile { width:9px; height:14px;  background:url('//img.echosting.cafe24.com/suio/sfix_icon_image.png') 0 -100px no-repeat !important;}
+.imgSFIX.icoSpam { width:14px; height:14px; background-position:-50px -100px; }
+.imgSFIX.icoDrag { width:15px; height:18px; background-position:-100px -100px; }
+.imgSFIX.icoWarn { width:14px; height:14px; background-position:-150px -100px; }
+.imgSFIX.icoHelp { width:14px; height:14px; background-position:-200px -100px; }
+.imgSFIX.icoLike { width:17px; height:14px; background-position: -50px -150px; }
+.imgSFIX.icoLike.selected { width:17px; height:14px; background-position:0 -150px; background-color:transparent; }
+.imgSFIX.icoError { width:14px; height:14px; background-position:-250px -100px; }
+
+/* 가이드형 아이콘 */
+.icoDesign, .icoLaw, .icoLawAdvice, .icoLawViolation, .icoPdf, .icoInfo {
+    display:inline-block; overflow:hidden; margin:-2px 0 0 0; font-size:0; line-height:0; vertical-align:middle;
+    background:url('//img.echosting.cafe24.com/suio/ko_KR/sfix_icon_guide.png') 0 0 no-repeat;
+}
+  html:lang(ja) .icoDesign, html:lang(ja) .icoLaw, html:lang(ja) .icoLawAdvice, html:lang(ja) .icoLawViolation, html:lang(ja) .icoPdf.password, html:lang(ja) .icoInfo {
+    background-image:url('//img.echosting.cafe24.com/suio/ja_JP/sfix_icon_guide.png');
+  }
+  html:lang(vi) .icoDesign, html:lang(vi) .icoLaw, html:lang(vi) .icoLawAdvice, html:lang(vi) .icoLawViolation, html:lang(vi) .icoPdf.password, html:lang(vi) .icoInfo {
+    background-image:url('//img.echosting.cafe24.com/suio/vi_VN/sfix_icon_guide.png');
+  }
+  .A,html:lang(en) .icoDesign,  html:lang(en) .icoLaw, html:lang(en) .icoLawAdvice, html:lang(en) .icoLawViolation, html:lang(en) .icoPdf.password, html:lang(en) .icoInfo {
+    background-image:url('//img.echosting.cafe24.com/suio/en_US/sfix_icon_guide.png');
+  }
+.icoDesign { width:87px; height:14px; margin-top:0; background-position:0 0; }
+  html:lang(ja) .icoDesign { width:108px; }
+  html:lang(vi) .icoDesign { width:140px; }
+  html:lang(en) .icoDesign { width:98px; }
+.icoLaw { width:56px; height:14px; margin-top:0; background-position:0 -50px; }
+  html:lang(ja) .icoLaw { width:59px; }
+  html:lang(vi) .icoLaw { width:85px; }
+  html:lang(en) .icoLaw { width:97px; }
+.icoLawAdvice { width:49px; height:16px; background-position:-100px -50px; }
+  html:lang(vi) .icoLawAdvice { width:107px; background-position:-120px -50px; }
+  html:lang(en) .icoLawAdvice { width:56px; background-position:-140px -50px; }
+.icoLawViolation { width:81px; height:16px; background-position:-200px -50px; }
+  html:lang(ja) .icoLawViolation { width:83px; }
+  html:lang(vi) .icoLawViolation { width:150px; background-position:-260px -50px; }
+  html:lang(en) .icoLawViolation { width:104px; background-position:-240px -50px; }
+.icoPdf.password { width:108px; height:14px; margin-top:0; background-position:0 -100px; }
+  html:lang(ja) .icoPdf.password { width:127px; }
+  html:lang(vi) .icoPdf.password { width:154px; }
+  html:lang(en) .icoPdf.password { width:119px; }
+.icoInfo { padding:0 0 0 16px; color:#61656e; font-size:11px; line-height:15px; word-spacing:-2px; background-position:-150px -100px; }
+  html:lang(vi) .icoInfo { background-position:-190px -100px; }
+
+/* EC headingArea 링크형 */
+.headingArea .btnManual { display:inline-block; height:20px; padding:0 8px; border-radius:100px; font-size:12px; line-height:20px; color:#fff; font-weight:bold; vertical-align:middle; text-decoration:none; background-color:#444b59; }
+.headingArea .btnVideo,
+.headingArea .btnSupport { overflow:hidden; display:inline-block; width:64px; height:20px; font-size:0; line-height:0; background:url('//img.echosting.cafe24.com/suio/ko_KR/sfix_btn_heading.png') 0 0 no-repeat; vertical-align:middle; }
+.headingArea .btnVideo { width:102px; background-position:-68px 0; }
+.headingArea .btnSupport { width:132px; background-position:-174px 0; }
+  html:lang(ja) .headingArea .btnVideo,
+  html:lang(ja) .headingArea .btnSupport { background-image:url('//img.echosting.cafe24.com/suio/ja_JP/sfix_btn_heading.png'); }
+  html:lang(vi) .headingArea .btnVideo { width:122px; background-position:-80px 0; }
+  html:lang(ja) .headingArea .btnSupport { width:164px; background-position:-98px 0; }
+  html:lang(vi) .headingArea .btnVideo,
+  html:lang(vi) .headingArea .btnSupport { background-image:url('//img.echosting.cafe24.com/suio/vi_VN/sfix_btn_heading.png'); }
+  html:lang(vi) .headingArea .btnVideo { width:122px; background-position:-80px 0; }
+  html:lang(vi) .headingArea .btnSupport { width:135px; background-position:-206px 0; }
+  html:lang(en) .headingArea .btnVideo,
+  html:lang(en) .headingArea .btnSupport { background-image:url('//img.echosting.cafe24.com/suio/en_US/sfix_btn_heading.png'); }
+  html:lang(en) .headingArea .btnVideo { width:122px; background-position:-80px 0; }
+  html:lang(en) .headingArea .btnSupport { width:135px; background-position:-206px 0; }
+  /* module.css용 */
+  .gHeading .btnManual{ display:inline-block; height:20px; padding:0 8px; border-radius:100px; font-size:12px; line-height:20px; color:#fff; font-weight:bold; vertical-align:middle; text-decoration:none; background-color:#444b59; }
+  .gHeading .btnVideo,
+  .gHeading .btnSupport { overflow:hidden; display:inline-block; width:64px; height:20px; font-size:0; line-height:0; background:url('//img.echosting.cafe24.com/suio/ko_KR/sfix_btn_heading.png') 0 0 no-repeat; vertical-align:middle; }
+  .gHeading .btnVideo { width:102px; background-position:-68px 0; }
+  .gHeading .btnSupport { width:132px; background-position:-174px 0; }
+    html:lang(ja) .gHeading .btnVideo,
+    html:lang(ja) .gHeading .btnSupport { background-image:url('//img.echosting.cafe24.com/suio/ja_JP/sfix_btn_heading.png'); }
+    html:lang(ja) .gHeading .btnSupport { width:164px; background-position:-98px 0; }
+    html:lang(vi) .gHeading .btnVideo,
+    html:lang(vi) .gHeading .btnSupport { background-image:url('//img.echosting.cafe24.com/suio/vi_VN/sfix_btn_heading.png'); }
+    html:lang(vi) .gHeading .btnSupport { width:135px; background-position:-206px 0; }
+    html:lang(en) .gHeading .btnVideo,
+    html:lang(en) .gHeading .btnSupport { background-image:url('//img.echosting.cafe24.com/suio/en_US/sfix_btn_heading.png'); }
+    html:lang(en) .gHeading .btnSupport { width:135px; background-position:-206px 0; }
+  /* mTitle */
+  .mTitle .btnManual { display:inline-block; height:20px; padding:0 8px; border-radius:100px; font-size:12px; line-height:20px; color:#fff; font-weight:bold; vertical-align:middle; text-decoration:none; background-color:#2a3652; }
+  .mTitle .btnManual:hover { background-color:#324062; }
+  .mTitle .btnVideo,
+  .mTitle .btnSupport { overflow:hidden; display:inline-block; width:64px; height:20px; font-size:0; line-height:0; background:url('//img.echosting.cafe24.com/suio/ko_KR/sfix_btn_heading.png') 0 0 no-repeat; vertical-align:middle; }
+  .mTitle .btnVideo { width:102px; background-position:-68px 0; }
+  .mTitle .btnSupport { width:132px; background-position:-174px 0; }
+    html:lang(ja) .mTitle .btnVideo,
+    html:lang(ja) .mTitle .btnSupport { background-image:url('//img.echosting.cafe24.com/suio/ja_JP/sfix_btn_heading.png'); }
+    html:lang(vi) .mTitle .btnVideo { width:122px; background-position:-80px 0; }
+    html:lang(ja) .mTitle .btnSupport { width:164px; background-position:-98px 0; }
+    html:lang(vi) .mTitle .btnVideo,
+    html:lang(vi) .mTitle .btnSupport { background-image:url('//img.echosting.cafe24.com/suio/vi_VN/sfix_btn_heading.png'); }
+    html:lang(vi) .mTitle .btnVideo { width:122px; background-position:-80px 0; }
+    html:lang(vi) .mTitle .btnSupport { width:135px; background-position:-206px 0; }
+    html:lang(en) .mTitle .btnVideo,
+    html:lang(en) .mTitle .btnSupport { background-image:url('//img.echosting.cafe24.com/suio/en_US/sfix_btn_heading.png'); }
+    html:lang(en) .mTitle .btnVideo { width:122px; background-position:-80px 0; }
+    html:lang(en) .mTitle .btnSupport { width:135px; background-position:-206px 0; }
+    html:lang(zh) .mTitle .btnVideo,
+    html:lang(zh) .mTitle .btnSupport { background-image:url('//img.echosting.cafe24.com/suio/zh_TW/sfix_btn_heading.png'); }
+    html:lang(zh) .mTitle .btnVideo { width:122px; background-position:-80px 0; }
+    html:lang(zh) .mTitle .btnSupport { width:135px; background-position:-206px 0; }
+
+/* 결제수단 아이콘 (Global) */
+.icoPayment { display:inline-block; padding:2px 3px 0; margin:2px 0; color:#fff; font-size:11px; line-height:14px; letter-spacing:-1px; white-space:nowrap; cursor:default; font-family:"돋움",Dotum,AppleGothic,sans-serif; }
+.icoPayment.gSmall { line-height:11px; }
+  html:lang(ja) .icoPayment { letter-spacing:0; font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+  html:lang(vi) .icoPayment { letter-spacing:0; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
+  html:lang(en) .icoPayment { letter-spacing:0; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
+  .icoPayment.CS-transfer { background:#ff3438; }
+  .icoPayment.CS-prepayment { background:#ff3a84; }
+  .icoPayment.CS-deposit { background:#ff7612; }
+  .icoPayment.CS-account { background:#ffa800; }
+  .icoPayment.CS-wallet { background:#DB4C00; }
+  .icoPayment.CD-card { background:#1fb301; }
+  .icoPayment.CD-mobile { background:#00c693; }
+  .icoPayment.DC-coupon { background:#00b7e7; }
+  .icoPayment.DC-points { background:#2199ff; }
+  .icoPayment.DC-credits { background:#5075ff; }
+  .icoPayment.DC-market { background:#9967ff; }
+  .icoPayment.DC-TRFP { background:#e167ff; }
+  .icoPayment.DC-code { background:#fe68e7; }
+  .icoPayment.OP-others { background:#a4a4a4; }
+  .icoPayment.OP-CVS { background:#6c6c6c; }
+  .icoPayment.OP-COD { background:#363636; }
+
+  /* IE10 이상 */
+  _:-ms-input-placeholder, :root .icoPayment { padding-top:3px; line-height:13px; }
+  _:-ms-input-placeholder, :root html:lang(ja) .icoPayment,
+  _:-ms-input-placeholder, :root html:lang(vi) .icoPayment { padding-top:1px; line-height:15px; }
+  _:-ms-input-placeholder, :root .icoPayment.gSmall { padding-top:4px; line-height:9px; }
+  _:-ms-input-placeholder, :root html:lang(ja) .icoPayment.gSmall,
+  _:-ms-input-placeholder, :root html:lang(vi) .icoPayment.gSmall { padding-top:2px; line-height:11px; }
+  /* // IE10 이상 */
+/* // 결제수단 아이콘 (Global) */
+
+/* txtIcoBadge */
+.txtIcoBadge { display:inline-block; height: 16px; vertical-align:middle; border-radius:8px; }
+.txtIcoBadge .label { display: inline-block; height:32px; padding: 0 16px; font-size: 20px; line-height:32px; white-space: nowrap; font-family:'Malgun Gothic','맑은 고딕','돋움', dotum, sans-serif; font-weight: bold; text-align: center; transform-origin: left top; transform: scale(0.5); }
+
+.txtIcoBadge.icoMemberLevel { color:#D31276; background-color:#FDEFF5; }
+.txtIcoBadge.icoMemberLevel.svip { width:38px; }
+.txtIcoBadge.icoMemberLevel.ssub { width:58px; }
+
+.txtIcoBadge.icoMemberLevel2 { color:#7525C2; background-color:#FDEFF5; }
+.txtIcoBadge.icoMemberLevel2.vip { width:32px; }
+.txtIcoBadge.icoMemberLevel2.vsub { width:57px; }
+
+.txtIcoBadge.icoMemberLevel3 { color:#FA7F00; background-color:#FFF7E4; }
+.txtIcoBadge.icoMemberLevel3.gold { width:44px; }
+.txtIcoBadge.icoMemberLevel3.gsub { width:58px; }
+
+.txtIcoBadge.icoOperateNotice { color:#fff; background-color:#9E6C00; }
+.txtIcoBadge.icoOperateNotice.zero { width:56px; }
+.txtIcoBadge.icoOperateNotice.prev { width:56px; }
+
+.txtIcoBadge.icoOperatePrimary { color:#fff; background-color:#0063C0; }
+.txtIcoBadge.icoOperatePrimary.topmall { width:46px; }
+
+.txtIcoBadge.icoOperateWarn { color:#fff; background-color:#E91D24; }
+.txtIcoBadge.icoOperateWarn.black { width:36px; }
+
+.txtIcoBadge.icoOperateInfo { color:#fff; background-color:#616161; }
+.txtIcoBadge.icoOperateInfo.le { width:27px; }
+.txtIcoBadge.icoOperateInfo.onestop { width:46px; }
+
+.txtIcoBadge.icoInfoCate { color:#2E93A0; background-color:#E7F8F9; }
+.txtIcoBadge.icoInfoCate.wms { width:66px; }
+.txtIcoBadge.icoInfoCate.cs { width:49px; }
+.txtIcoBadge.icoInfoCate.bpo { width:67px; }
+
+.txtIcoBadge.icoAdMall { color:#7525C2; background-color:#F4ECFA; }
+.txtIcoBadge.icoAdMall.vip { width:62px; }
+
+.txtIcoBadge.icoAdMall2 { color:#FA7F00; background-color:#FFF7E4; }
+.txtIcoBadge.icoAdMall2.basic { width:46px; }
+
+/* 텍스트형 아이콘 */
+.icoTxt, 
+.icoTxt.icoNew, 
+.icoTxt.icoLink { width:auto !important; height:16px; padding:0 2px; font-size:11px; line-height:16px; letter-spacing:-1px; color:#fff; border:1px solid transparent; box-sizing:border-box; background-image:none !important; }
+  .icoTxt.icoRegularDelivery { height:auto; border-color:#007FDF; background-color:#0091FF; cursor:pointer; }
