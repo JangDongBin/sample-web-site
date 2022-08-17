@@ -17,7 +17,9 @@ public class AdminController {
     private final AdminService adminService;
 
     @GetMapping("")
-    public String adminMain() {
+    public String adminMain(Model model) {
+        model.addAttribute("depth1", "home");
+        model.addAttribute("depth2", "");
         return "Admin/adminMain";
     }
 
@@ -55,9 +57,18 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @GetMapping("/board")
-    public String adminBoard() {
-        return "Admin/adminBoard";
+    @GetMapping("/board/list")
+    public String adminBoardList(Model model) {
+        model.addAttribute("depth1", "board");
+        model.addAttribute("depth2", "");
+        return "Admin/board/list";
+    }
+
+    @GetMapping("/board/view")
+    public String adminBoardView(Model model) {
+        model.addAttribute("depth1", "board");
+        model.addAttribute("depth2", "");
+        return "Admin/board/view";
     }
 
     @GetMapping("/posting")
@@ -68,5 +79,12 @@ public class AdminController {
     @GetMapping("/login")
     public String adminLogin() {
         return "Admin/adminLogin";
+    }
+
+    @GetMapping("/consult")
+    public String adminConsult(Model model) {
+        model.addAttribute("depth1", "consult");
+        model.addAttribute("depth2", "");
+        return "Admin/adminConsult";
     }
 }
