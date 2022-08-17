@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lagn="ko"
+xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -436,87 +437,8 @@
                 elem.attachEvent('on' + eventType, handler);
         }
 
-        /**
-         * 하나만 열리는 팝업창을 오픈합니다.
-         *
-         * @example openPopupOnlyOnce('url', 'popup_name');
-         * @example openPopupOnlyOnce(function(){return window.open('url', 'popup_name');}, 'popup_name');
-         * @param string|function url URL 또는 window.open과 동일한 변수를 리턴하는 function
-         * @param string name 팝업창 이름
-         * @param string specs 팝업창 옵션
-         * @param bool replace replace 여부
-         */
-        function openPopupOnlyOnce(url, name, specs, replace) {
-            var sCookieName = 'popupOnlyOnce_' + name;
 
-            if (isAlreadyOpened(sCookieName) === true) {
-                return;
-            }
-
-            var win = null;
-            if (typeof url === 'function') {
-                win = url();
-            } else {
-                var win = window.open(url, name, specs, replace);
-            }
-
-            try {
-                window.setTimeout(function () {
-                    addEventHandler(win, 'beforeunload', function () {
-                        closePopupOnlyOnce(name);
-                    });
-                }, 500);
-
-                // setItem
-                if (sessionStorage) {
-                    sessionStorage.setItem(sCookieName, 1);
-                } else {
-                    document.cookie = sCookieName + "=1";
-                }
-
-            } catch (e) {
-            }
-
-            return win;
-
-            function isAlreadyOpened(name) {
-                if (sessionStorage) {
-                    if (sessionStorage.getItem(name) == '1') {
-                        return true;
-                    }
-                } else {
-                    if ((new RegExp('(^| |;)' + name + '=1')).test(document.cookie)) {
-                        return true;
-                    }
-                }
-
-                return false;
-            }
-        }
-
-        /**
-         * 윈도우명이 name인 팝업창을 닫습니다.
-         *
-         * @param string name 팝업창 이름
-         */
-        function closePopupOnlyOnce(name) {
-            /*
-            var win = window.open('about:blank', name);
-            win.close();
-            */
-
-            // removeItem
-            var sCookieName = 'popupOnlyOnce_' + name;
-            if (sessionStorage) {
-                sessionStorage.removeItem(sCookieName);
-            } else {
-                document.cookie = sCookieName + "=deleted";
-            }
-        }
-
-        function popup_close() {
-            oWin.close();
-        }
+     
 
         function admin_popup(mall_id, mode) {
             url = './popup/popup_gong.php?mall=' + mall_id + '&mode=' + mode;
@@ -527,35 +449,11 @@
 
             var oWin = showModelessDialog(url, window, 'status:false; dialogWidth:' + dialogWidth + 'px; dialogHeight: ' + dialogHeight + 'px; help:no; //dialogLeft:0px; dialogTop:0px; status:no; scroll:no');
         }
-
-        function admin_popup_gong1026() {
-            //공지사항팝업
-            url = './popup/popup_gong_1031.php';
-
-            // 현재 팝업
-            dialogWidth = 500;
-            dialogHeight = 920;
-
-            var oWin = showModelessDialog(url, window, 'status:false; dialogWidth:' + dialogWidth + 'px; dialogHeight: ' + dialogHeight + 'px; help:no; //dialogLeft:0px; dialogTop:0px; status:no; scroll:no');
-        }
-
         function open_bugboard(url) {
             winname = 'bug_board';
             option = 'toolbar=no location=no scrollbars=yes resizable=no width=750, height=600';
             opener = window.open(url, winname, option);
         }
-
-        /*
-        function open_window(name, url, left, top, width, height, toolbar, menubar, statusbar, scrollbar, resizable)
-        {
-          toolbar_str = toolbar ? 'yes' : 'no';
-          menubar_str = menubar ? 'yes' : 'no';
-          statusbar_str = statusbar ? 'yes' : 'no';
-          scrollbar_str = scrollbar ? 'yes' : 'no';
-          resizable_str = resizable ? 'yes' : 'no';
-          window.open(url, name, 'left='+left+',top='+top+',width='+width+',height='+height+',toolbar='+toolbar_str+',menubar='+menubar_str+',status='+statusbar_str+',scrollbars='+scrollbar_str+',resizable='+resizable_str);
-        }
-        */
 
         function open_member(member_id) {
             url = '/admin/php/shop1/c/member_admin_d_f.php?user_id=' + member_id + '&referer=top';
@@ -680,17 +578,6 @@
                 caller = caller_str;
             }
 
-            if (true || axwin == null || axwin == undefined) {
-                var agent_url = "/admin/php/shop1/c/phone/axAgentProj1.php?caller=" + caller + "&IOput=" + IOput + "&call_type=" + call_type + "&caller_name=" + caller;
-                var pop_win_form = "top=0,left=0, width=" + axWidth + ",height=" + axHeight + ",scrollbars=no,resizable=no,titlebar=0";
-                axwin = openPopupOnlyOnce(agent_url, 'phone_manager_bulrobulsa', pop_win_form);
-                axwin.moveTo(screen.availWidth - axWidth, screen.availHeight - axHeight);
-            } else {
-                var user_id = frm.user_id.value;
-                var user_pw = frm.user_pw.value;
-                axwin.iphone_form_set(user_id, user_pw, caller, IOput, call_type, caller_name);
-                axwin.FromJSS();
-            }
             axwin.focus();
         }
 
@@ -1107,107 +994,7 @@
         <hr class="layout">
 
         <div id="container">
-            <!--  class="snbHidden" -->
-            <div id="sidebar" class="dashboard">
-                <!-- LNB Start -->
-                <!-- echost 뉴프로모드 LNB 로고 영역 -->
-                <div class="logo">
-                    <h1>
-                        <a href="/admin/php/shop1/main.php">
-                            <img src="//img.echosting.cafe24.com/ec/v2/h1_logo.svg" alt="CAFE24">
-                        </a>
-                    </h1>
-                    <button type="button" class="snbToggle eSnbToggle" title="접기/펼치기 ( [ )">
-                        <!-- 메뉴 숨김 -->
-                        메뉴 숨김
-                    </button>
-                </div>
-
-                <!-- echost 뉴프로모드 LNB 영역 -->
-                <div class="snbArea ">
-                    <!-- LNB 1depth 메뉴 -->
-                    <div id="menuList" class="eCustomScrollbar mCustomScrollbar _mCS_2 mCS-autoHide mCS_no_scrollbar">
-                        <div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside"
-                            style="max-height: 896px;" tabindex="0">
-                            <div id="mCSB_2_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
-                                style="position:relative; top:0; left:0;" dir="ltr">
-                                <!-- 뉴프로 LNB 1depth 쇼핑몰 메뉴 시작 -->
-                                <ul class="menu">
-                                    <li class="  selected ">
-                                        <a data-gtm="LNB_10258" id="QA_Lnb_Menu10258" href="#none" menuno="10258"
-                                            treeno="11370" class="link home" name="홈">
-                                            홈
-                                        </a>
-                                    </li>
-                                    <li class="hasChild">
-                                        <a data-gtm="LNB_1681" id="QA_Lnb_Menu1681" href="#none" menuno="1681"
-                                            treeno="867" class="link order" name="주문">
-                                            상담
-                                        </a>
-                                    </li>
-                                    <li class="hasChild">
-                                        <a data-gtm="LNB_2056" id="QA_Lnb_Menu2056" href="#none" menuno="2056"
-                                            treeno="977" class="link product" name="상품">
-                                            차량
-                                        </a>
-                                    </li>
-                                    <li class="hasChild">
-                                        <a data-gtm="LNB_6" id="QA_Lnb_Menu6" href="#none" menuno="6" treeno="153"
-                                            class="link member" name="고객">
-                                            고객
-                                        </a>
-                                    </li>
-                                    <li class="hasChild">
-                                        <a data-gtm="LNB_7" id="QA_Lnb_Menu7" href="#none" menuno="7" treeno="154"
-                                            class="link board" name="게시판">
-                                            게시판
-                                        </a>
-                                    </li>
-                                    <li class="hasChild">
-                                        <a data-gtm="LNB_2" id="QA_Lnb_Menu2" href="#none" menuno="2" treeno="155"
-                                            class="link design" name="디자인">
-                                            디자인
-                                        </a>
-                                    </li>
-                                    <li class="hasChild">
-                                        <a data-gtm="LNB_2060" id="QA_Lnb_Menu2060" href="#none" menuno="2060"
-                                            treeno="11375" class="link calculate" name="통계">
-                                            통계
-                                        </a>
-                                    </li>
-                                </ul>
-                                <!-- // 뉴프로 LNB 1depth 쇼핑몰 메뉴 끝 -->
-
-                                <!-- 뉴프로 LNB 1depth 쇼핑몰 설정 메뉴 시작 -->
-                                <ul class="menu">
-                                    <li class="hasChild">
-                                        <a data-gtm="LNB_10270" id="QA_Lnb_Menu10270" href="#none" menuno="10270"
-                                            treeno="11385" class="link setting" name="환경 설정">
-                                            환경 설정
-                                        </a>
-                                    </li>
-                                </ul>
-                                <!-- // 뉴프로 LNB 1depth 쇼핑몰 설정 메뉴 끝 -->
-                            </div>
-                            <div id="mCSB_2_scrollbar_vertical"
-                                class="mCSB_scrollTools mCSB_2_scrollbar mCS-light mCSB_scrollTools_vertical"
-                                style="display: none;">
-                                <div class="mCSB_draggerContainer" style="">
-                                    <div id="mCSB_2_dragger_vertical" class="mCSB_dragger"
-                                        style="position: absolute; min-height: 30px; height: 0px; top: 0px;">
-                                        <div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
-                                    </div>
-                                    <div class="mCSB_draggerRail"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- LNB 2depth 메뉴 -->
-
-                </div>
-                <!-- LNB End -->
-            </div>
+            <header th:replace="fragments/admin/sidebar.html"></header>
 
             <hr class="layout">
 

@@ -1,0 +1,177 @@
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+<!--Fragment 선언-->
+<div id="sidebar" class="dashboard">
+    <!-- LNB Start -->
+    <!-- echost 뉴프로모드 LNB 로고 영역 -->
+    <div class="logo">
+        <h1>
+            <a href="/admin">
+                <img src="//img.echosting.cafe24.com/ec/v2/h1_logo.svg" alt="관리자">
+            </a>
+        </h1>
+        <button type="button" class="snbToggle eSnbToggle" title="접기/펼치기 ( [ )">
+            <!-- 메뉴 숨김 -->
+            메뉴 숨김
+        </button>
+    </div>
+
+    <!-- echost 뉴프로모드 LNB 영역 -->
+    <div class="snbArea ">
+        <!-- LNB 1depth 메뉴 -->
+        <div id="menuList" class="eCustomScrollbar mCustomScrollbar _mCS_2 mCS-autoHide mCS_no_scrollbar">
+            <div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside"
+                style="max-height: 896px;" tabindex="0">
+                <div id="mCSB_2_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+                    style="position:relative; top:0; left:0;" dir="ltr">
+
+                    <!-- 뉴프로 LNB 1depth 쇼핑몰 메뉴 시작 -->
+                    <ul class="menu">
+                        <li class=" " th:classappend="${depth1} == 'home' ? 'selected'">
+                            <a href="/admin" class="link home" name="홈">홈 </a>
+                        </li>
+                        <li class="hasChild">
+                            <a  href="/admin/consult/list" class="link order" name="상담">상담</a>
+                        </li>
+                        <li class="hasChild">
+                            <a href="/admin/car/list" class="link product" name="차량">차량</a>
+                        </li>
+                        <li class="hasChild">
+                            <a href="#none" class="link member" name="고객">
+                                고객
+                            </a>
+                        </li>
+                        <li class="hasChild" th:classappend="${depth1} == 'board' ? 'show'">
+                            <a href="/admin/board/list" class="link board" name="게시글">
+                                게시글
+                            </a>
+                        </li>
+                        <li class="hasChild" th:classappend="${depth1} == 'page' ? 'show'">
+                            <a href="/admin/page" class="link design" name="디자인">
+                                페이지
+                            </a>
+                        </li>
+                        <li class="hasChild" th:classappend="${depth1} == 'popup' ? 'show'">
+                            <a href="/admin/popup" class="link design" name="팝업">
+                                팝업
+                            </a>
+                        </li>
+                        <li class="hasChild" th:classappend="${depth1} == 'status' ? 'show'">
+                            <a href="/admin/status" class="link calculate" name="통계">
+                                통계
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- // 뉴프로 LNB 1depth 쇼핑몰 메뉴 끝 -->
+
+                    <!-- 뉴프로 LNB 1depth 쇼핑몰 메뉴 시작 -->
+                    <!-- <ul class="menu">
+                        <li class="  selected ">
+                            <a data-gtm="LNB_10258" id="QA_Lnb_Menu10258" href="#none" menuno="10258"
+                                treeno="11370" class="link home" name="홈">
+                                홈
+                            </a>
+                        </li>
+                        <li class="hasChild">
+                            <a data-gtm="LNB_1681" id="QA_Lnb_Menu1681" href="#none" menuno="1681"
+                                treeno="867" class="link order" name="주문">
+                                메뉴
+                            </a>
+                        </li>
+                        <li class="hasChild">
+                            <a data-gtm="LNB_2056" id="QA_Lnb_Menu2056" href="#none" menuno="2056"
+                                treeno="977" class="link product" name="상품">
+                                디자인
+                            </a>
+                        </li>
+                        <li class="hasChild">
+                            <a data-gtm="LNB_6" id="QA_Lnb_Menu6" href="#none" menuno="6" treeno="153"
+                                class="link member" name="고객">
+                                회원
+                            </a>
+                        </li>
+                        <li class="hasChild show">
+                            <a data-gtm="LNB_7" id="QA_Lnb_Menu7" href="/admin/board" menuno="7"
+                                treeno="154" class="link board" name="게시판">
+                                게시판
+                            </a>
+                        </li>
+                        <li class="hasChild">
+                            <a data-gtm="LNB_2" id="QA_Lnb_Menu2" href="#none" menuno="2" treeno="155"
+                                class="link design" name="디자인">
+                                디자인
+                            </a>
+                        </li>
+                        <li class="hasChild">
+                            <a data-gtm="LNB_2060" id="QA_Lnb_Menu2060" href="#none" menuno="2060"
+                                treeno="11375" class="link calculate" name="통계">
+                                통계
+                            </a>
+                        </li>
+                    </ul> -->
+                    <!-- // 뉴프로 LNB 1depth 쇼핑몰 메뉴 끝 -->
+
+                    <!-- 뉴프로 LNB 1depth 쇼핑몰 설정 메뉴 시작 -->
+                    <ul class="menu">
+                        <li class="hasChild">
+                            <a data-gtm="LNB_10270" id="QA_Lnb_Menu10270" href="#none" menuno="10270"
+                                treeno="11385" class="link setting" name="환경 설정">
+                                환경 설정
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- // 뉴프로 LNB 1depth 쇼핑몰 설정 메뉴 끝 -->
+                </div>
+                <div id="mCSB_2_scrollbar_vertical"
+                    class="mCSB_scrollTools mCSB_2_scrollbar mCS-light mCSB_scrollTools_vertical"
+                    style="display: none;">
+                    <div class="mCSB_draggerContainer" style="">
+                        <div id="mCSB_2_dragger_vertical" class="mCSB_dragger"
+                            style="position: absolute; min-height: 30px; height: 0px; top: 0px;">
+                            <div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+                        </div>
+                        <div class="mCSB_draggerRail"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LNB 2depth 메뉴 -->
+        <div class="subMenu eClone eCustomScrollbar mCustomScrollbar _mCS_3 mCS-autoHide mCS_no_scrollbar">
+            <div id="mCSB_3" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside"
+                style="max-height: 896px;" tabindex="0">
+                <div id="mCSB_3_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+                    style="position:relative; top:0; left:0;" dir="ltr">
+                    <div class="subTitle left" id="ec_new_pro_lnb_back_btn">
+                        <a href="#none" class="title" id="ec_sub_dashboard_menu">
+                            <span class="ellips">게시판</span>
+                        </a>
+                        <button type="button" class="btnGoBack">Go Back</button>
+                    </div>
+                    <div class="depthList">
+                        <ul class="depth2">
+                            <li class=" selected">
+                                <a data-gtm="LNB_106" id="QA_Lnb_Menu106"
+                                    href="/admin/php/shop1/b/board_admin_l.php" menuno="106" treeno="406"
+                                    class="link " targetframe="F">
+                                    <span class="ellips">게시판 관리</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a data-gtm="LNB_390" id="QA_Lnb_Menu390"
+                                    href="/admin/php/shop1/b/board_admin_bulletin_l.php" menuno="390"
+                                    treeno="408" class="link " targetframe="F">
+                                    <span class="ellips">게시물 관리</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- LNB End -->
+</div>
+</html>
